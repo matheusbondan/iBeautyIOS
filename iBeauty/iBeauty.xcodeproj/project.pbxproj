@@ -1,0 +1,897 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4117E67FCF5AB0487ECF9E3B /* Pods_iBeautyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D41961731CFFAA0071CB68 /* Pods_iBeautyTests.framework */; };
+		9E77D05997B5E37AED346CA8 /* Pods_iBeautyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC90E7D7D7328945BC68A593 /* Pods_iBeautyUITests.framework */; };
+		EB35F6CD1CFAD29B3EB73BFB /* Pods_iBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB577BF7A09376B53A4A864E /* Pods_iBeauty.framework */; };
+		F207E91425392A9F005D512D /* SalonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207E91325392A9F005D512D /* SalonListViewController.swift */; };
+		F21F5A9D2568556B00C9CF14 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5A9C2568556B00C9CF14 /* PerfilViewController.swift */; };
+		F21F5AB925758E4E00C9CF14 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5AB825758E4E00C9CF14 /* ServiceModel.swift */; };
+		F21F5AC125758E6200C9CF14 /* EmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5AC025758E6200C9CF14 /* EmployeeModel.swift */; };
+		F21F5ACA25758EA300C9CF14 /* DateScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5AC925758EA300C9CF14 /* DateScheduleModel.swift */; };
+		F21F5AD225758EFB00C9CF14 /* SalonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5AD125758EFB00C9CF14 /* SalonModel.swift */; };
+		F23B396C254BA23D00269118 /* SuccessConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23B396B254BA23D00269118 /* SuccessConfirmViewController.swift */; };
+		F2466AF1252FD71900DD3725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2466AF0252FD71900DD3725 /* AppDelegate.swift */; };
+		F2466AF5252FD71900DD3725 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2466AF4252FD71900DD3725 /* ViewController.swift */; };
+		F2466AF8252FD71900DD3725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2466AF6252FD71900DD3725 /* Main.storyboard */; };
+		F2466AFB252FD71900DD3725 /* iBeauty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F2466AF9252FD71900DD3725 /* iBeauty.xcdatamodeld */; };
+		F2466AFD252FD71C00DD3725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2466AFC252FD71C00DD3725 /* Assets.xcassets */; };
+		F2466B00252FD71C00DD3725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2466AFE252FD71C00DD3725 /* LaunchScreen.storyboard */; };
+		F2466B0B252FD71C00DD3725 /* iBeautyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2466B0A252FD71C00DD3725 /* iBeautyTests.swift */; };
+		F2466B16252FD71C00DD3725 /* iBeautyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2466B15252FD71C00DD3725 /* iBeautyUITests.swift */; };
+		F2B874D62537AE79008A0F71 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B874D52537AE79008A0F71 /* CategoriesViewController.swift */; };
+		F2B874DB2537AED5008A0F71 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B874DA2537AED5008A0F71 /* CategoriesTableViewCell.swift */; };
+		F2C4934825604B5900042CDA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4934725604B5900042CDA /* LoginViewController.swift */; };
+		F2C4935025604B6F00042CDA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4934F25604B6F00042CDA /* FirstViewController.swift */; };
+		F2C4935525604B7D00042CDA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4935425604B7D00042CDA /* RegisterViewController.swift */; };
+		F2C4935A256754B100042CDA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C49359256754B100042CDA /* String+Extension.swift */; };
+		F2C4935F256754C900042CDA /* AppContextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4935E256754C900042CDA /* AppContextHelper.swift */; };
+		F2C49364256759C100042CDA /* MaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C49363256759C100042CDA /* MaskTextField.swift */; };
+		F2C4936925675CEE00042CDA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4936825675CEE00042CDA /* BaseViewController.swift */; };
+		F2C4936E2567626E00042CDA /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4936D2567626E00042CDA /* CustomDatePickerView.swift */; };
+		F2C493732567642500042CDA /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C493722567642500042CDA /* TimeViewController.swift */; };
+		F2C87AC925420193007934C4 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87AC825420193007934C4 /* RateViewController.swift */; };
+		F2C87ACE254201A3007934C4 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87ACD254201A3007934C4 /* ServiceViewController.swift */; };
+		F2C87AD325420AAA007934C4 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87AD225420AAA007934C4 /* EmployeeViewController.swift */; };
+		F2C87AD825420B10007934C4 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87AD725420B10007934C4 /* ScheduleViewController.swift */; };
+		F2C87ADD25420B34007934C4 /* AlertConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87ADC25420B34007934C4 /* AlertConfirmationViewController.swift */; };
+		F2C87AE225421B7F007934C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87AE125421B7F007934C4 /* MapViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F2466B07252FD71C00DD3725 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2466AE5252FD71900DD3725 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2466AEC252FD71900DD3725;
+			remoteInfo = iBeauty;
+		};
+		F2466B12252FD71C00DD3725 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2466AE5252FD71900DD3725 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2466AEC252FD71900DD3725;
+			remoteInfo = iBeauty;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D0FF7A50CB01733C7DC5AE3 /* Pods-iBeautyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBeautyUITests.debug.xcconfig"; path = "Target Support Files/Pods-iBeautyUITests/Pods-iBeautyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		11D41961731CFFAA0071CB68 /* Pods_iBeautyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBeautyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29EB86296E2D804812CEFD95 /* Pods-iBeauty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBeauty.debug.xcconfig"; path = "Target Support Files/Pods-iBeauty/Pods-iBeauty.debug.xcconfig"; sourceTree = "<group>"; };
+		444533C8ACD8E914B4B03149 /* Pods-iBeautyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBeautyUITests.release.xcconfig"; path = "Target Support Files/Pods-iBeautyUITests/Pods-iBeautyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6E8FD3FCB0F5C29CCE1B5819 /* Pods-iBeauty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBeauty.release.xcconfig"; path = "Target Support Files/Pods-iBeauty/Pods-iBeauty.release.xcconfig"; sourceTree = "<group>"; };
+		AE4CB018F82BF4E5BDB7015C /* Pods-iBeautyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBeautyTests.release.xcconfig"; path = "Target Support Files/Pods-iBeautyTests/Pods-iBeautyTests.release.xcconfig"; sourceTree = "<group>"; };
+		CB577BF7A09376B53A4A864E /* Pods_iBeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC90E7D7D7328945BC68A593 /* Pods_iBeautyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBeautyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01C64B5D63095D275EC3AA1 /* Pods-iBeautyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBeautyTests.debug.xcconfig"; path = "Target Support Files/Pods-iBeautyTests/Pods-iBeautyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F207E91325392A9F005D512D /* SalonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonListViewController.swift; sourceTree = "<group>"; };
+		F21F5A9C2568556B00C9CF14 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		F21F5AB825758E4E00C9CF14 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		F21F5AC025758E6200C9CF14 /* EmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeModel.swift; sourceTree = "<group>"; };
+		F21F5AC925758EA300C9CF14 /* DateScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScheduleModel.swift; sourceTree = "<group>"; };
+		F21F5AD125758EFB00C9CF14 /* SalonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonModel.swift; sourceTree = "<group>"; };
+		F23B396B254BA23D00269118 /* SuccessConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessConfirmViewController.swift; sourceTree = "<group>"; };
+		F2466AED252FD71900DD3725 /* iBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2466AF0252FD71900DD3725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F2466AF4252FD71900DD3725 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F2466AF7252FD71900DD3725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F2466AFA252FD71900DD3725 /* iBeauty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iBeauty.xcdatamodel; sourceTree = "<group>"; };
+		F2466AFC252FD71C00DD3725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2466AFF252FD71C00DD3725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F2466B01252FD71C00DD3725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2466B06252FD71C00DD3725 /* iBeautyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBeautyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2466B0A252FD71C00DD3725 /* iBeautyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBeautyTests.swift; sourceTree = "<group>"; };
+		F2466B0C252FD71C00DD3725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2466B11252FD71C00DD3725 /* iBeautyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBeautyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2466B15252FD71C00DD3725 /* iBeautyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBeautyUITests.swift; sourceTree = "<group>"; };
+		F2466B17252FD71C00DD3725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2B874D52537AE79008A0F71 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		F2B874DA2537AED5008A0F71 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		F2C4934725604B5900042CDA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F2C4934F25604B6F00042CDA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		F2C4935425604B7D00042CDA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F2C49359256754B100042CDA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		F2C4935E256754C900042CDA /* AppContextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContextHelper.swift; sourceTree = "<group>"; };
+		F2C49363256759C100042CDA /* MaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskTextField.swift; sourceTree = "<group>"; };
+		F2C4936825675CEE00042CDA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F2C4936D2567626E00042CDA /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
+		F2C493722567642500042CDA /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		F2C87AC825420193007934C4 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		F2C87ACD254201A3007934C4 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		F2C87AD225420AAA007934C4 /* EmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
+		F2C87AD725420B10007934C4 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		F2C87ADC25420B34007934C4 /* AlertConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfirmationViewController.swift; sourceTree = "<group>"; };
+		F2C87AE125421B7F007934C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2466AEA252FD71900DD3725 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB35F6CD1CFAD29B3EB73BFB /* Pods_iBeauty.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2466B03252FD71C00DD3725 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4117E67FCF5AB0487ECF9E3B /* Pods_iBeautyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2466B0E252FD71C00DD3725 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E77D05997B5E37AED346CA8 /* Pods_iBeautyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		145C20A49B8AF210A4E929F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29EB86296E2D804812CEFD95 /* Pods-iBeauty.debug.xcconfig */,
+				6E8FD3FCB0F5C29CCE1B5819 /* Pods-iBeauty.release.xcconfig */,
+				F01C64B5D63095D275EC3AA1 /* Pods-iBeautyTests.debug.xcconfig */,
+				AE4CB018F82BF4E5BDB7015C /* Pods-iBeautyTests.release.xcconfig */,
+				0D0FF7A50CB01733C7DC5AE3 /* Pods-iBeautyUITests.debug.xcconfig */,
+				444533C8ACD8E914B4B03149 /* Pods-iBeautyUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2CE77CC5A7DE0DEDD051B71C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB577BF7A09376B53A4A864E /* Pods_iBeauty.framework */,
+				11D41961731CFFAA0071CB68 /* Pods_iBeautyTests.framework */,
+				DC90E7D7D7328945BC68A593 /* Pods_iBeautyUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F207E8FF25391AAF005D512D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F2C49363256759C100042CDA /* MaskTextField.swift */,
+				F207E90025391AB7005D512D /* SalonCell */,
+				F2C49359256754B100042CDA /* String+Extension.swift */,
+				F2C4935E256754C900042CDA /* AppContextHelper.swift */,
+				F2C4936825675CEE00042CDA /* BaseViewController.swift */,
+				F2C4936D2567626E00042CDA /* CustomDatePickerView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F207E90025391AB7005D512D /* SalonCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SalonCell;
+			sourceTree = "<group>";
+		};
+		F2466AE4252FD71900DD3725 = {
+			isa = PBXGroup;
+			children = (
+				F2466AEF252FD71900DD3725 /* iBeauty */,
+				F2466B09252FD71C00DD3725 /* iBeautyTests */,
+				F2466B14252FD71C00DD3725 /* iBeautyUITests */,
+				F2466AEE252FD71900DD3725 /* Products */,
+				145C20A49B8AF210A4E929F3 /* Pods */,
+				2CE77CC5A7DE0DEDD051B71C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F2466AEE252FD71900DD3725 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2466AED252FD71900DD3725 /* iBeauty.app */,
+				F2466B06252FD71C00DD3725 /* iBeautyTests.xctest */,
+				F2466B11252FD71C00DD3725 /* iBeautyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2466AEF252FD71900DD3725 /* iBeauty */ = {
+			isa = PBXGroup;
+			children = (
+				F207E8FF25391AAF005D512D /* Common */,
+				F2C4934625604B4400042CDA /* Login */,
+				F2B874C92537ACA6008A0F71 /* Salon */,
+				F2466AF0252FD71900DD3725 /* AppDelegate.swift */,
+				F2466AF4252FD71900DD3725 /* ViewController.swift */,
+				F2466AF6252FD71900DD3725 /* Main.storyboard */,
+				F2466AFC252FD71C00DD3725 /* Assets.xcassets */,
+				F2466AFE252FD71C00DD3725 /* LaunchScreen.storyboard */,
+				F2466B01252FD71C00DD3725 /* Info.plist */,
+				F2466AF9252FD71900DD3725 /* iBeauty.xcdatamodeld */,
+			);
+			path = iBeauty;
+			sourceTree = "<group>";
+		};
+		F2466B09252FD71C00DD3725 /* iBeautyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2466B0A252FD71C00DD3725 /* iBeautyTests.swift */,
+				F2466B0C252FD71C00DD3725 /* Info.plist */,
+			);
+			path = iBeautyTests;
+			sourceTree = "<group>";
+		};
+		F2466B14252FD71C00DD3725 /* iBeautyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F2466B15252FD71C00DD3725 /* iBeautyUITests.swift */,
+				F2466B17252FD71C00DD3725 /* Info.plist */,
+			);
+			path = iBeautyUITests;
+			sourceTree = "<group>";
+		};
+		F2B874C92537ACA6008A0F71 /* Salon */ = {
+			isa = PBXGroup;
+			children = (
+				F2B874E025391027008A0F71 /* Model */,
+				F2B874DF2539101F008A0F71 /* Controllers */,
+			);
+			path = Salon;
+			sourceTree = "<group>";
+		};
+		F2B874DF2539101F008A0F71 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2B874D52537AE79008A0F71 /* CategoriesViewController.swift */,
+				F2B874DA2537AED5008A0F71 /* CategoriesTableViewCell.swift */,
+				F207E91325392A9F005D512D /* SalonListViewController.swift */,
+				F2C87AC825420193007934C4 /* RateViewController.swift */,
+				F2C87ACD254201A3007934C4 /* ServiceViewController.swift */,
+				F2C87AD225420AAA007934C4 /* EmployeeViewController.swift */,
+				F2C87AD725420B10007934C4 /* ScheduleViewController.swift */,
+				F2C87ADC25420B34007934C4 /* AlertConfirmationViewController.swift */,
+				F2C87AE125421B7F007934C4 /* MapViewController.swift */,
+				F23B396B254BA23D00269118 /* SuccessConfirmViewController.swift */,
+				F2C493722567642500042CDA /* TimeViewController.swift */,
+				F21F5A9C2568556B00C9CF14 /* PerfilViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F2B874E025391027008A0F71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F21F5AB825758E4E00C9CF14 /* ServiceModel.swift */,
+				F21F5AC025758E6200C9CF14 /* EmployeeModel.swift */,
+				F21F5AC925758EA300C9CF14 /* DateScheduleModel.swift */,
+				F21F5AD125758EFB00C9CF14 /* SalonModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2C4934625604B4400042CDA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F2C4934725604B5900042CDA /* LoginViewController.swift */,
+				F2C4934F25604B6F00042CDA /* FirstViewController.swift */,
+				F2C4935425604B7D00042CDA /* RegisterViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2466AEC252FD71900DD3725 /* iBeauty */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2466B1A252FD71C00DD3725 /* Build configuration list for PBXNativeTarget "iBeauty" */;
+			buildPhases = (
+				E57DBD52AE5BF0B7EE05C641 /* [CP] Check Pods Manifest.lock */,
+				F2466AE9252FD71900DD3725 /* Sources */,
+				F2466AEA252FD71900DD3725 /* Frameworks */,
+				F2466AEB252FD71900DD3725 /* Resources */,
+				02211F2716DC9E07911FDE9C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iBeauty;
+			productName = iBeauty;
+			productReference = F2466AED252FD71900DD3725 /* iBeauty.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F2466B05252FD71C00DD3725 /* iBeautyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2466B1D252FD71C00DD3725 /* Build configuration list for PBXNativeTarget "iBeautyTests" */;
+			buildPhases = (
+				1855C824D348EBD663D7FF46 /* [CP] Check Pods Manifest.lock */,
+				F2466B02252FD71C00DD3725 /* Sources */,
+				F2466B03252FD71C00DD3725 /* Frameworks */,
+				F2466B04252FD71C00DD3725 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2466B08252FD71C00DD3725 /* PBXTargetDependency */,
+			);
+			name = iBeautyTests;
+			productName = iBeautyTests;
+			productReference = F2466B06252FD71C00DD3725 /* iBeautyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F2466B10252FD71C00DD3725 /* iBeautyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2466B20252FD71C00DD3725 /* Build configuration list for PBXNativeTarget "iBeautyUITests" */;
+			buildPhases = (
+				38E006C562C94E4F43956C38 /* [CP] Check Pods Manifest.lock */,
+				F2466B0D252FD71C00DD3725 /* Sources */,
+				F2466B0E252FD71C00DD3725 /* Frameworks */,
+				F2466B0F252FD71C00DD3725 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2466B13252FD71C00DD3725 /* PBXTargetDependency */,
+			);
+			name = iBeautyUITests;
+			productName = iBeautyUITests;
+			productReference = F2466B11252FD71C00DD3725 /* iBeautyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F2466AE5252FD71900DD3725 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					F2466AEC252FD71900DD3725 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					F2466B05252FD71C00DD3725 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = F2466AEC252FD71900DD3725;
+					};
+					F2466B10252FD71C00DD3725 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = F2466AEC252FD71900DD3725;
+					};
+				};
+			};
+			buildConfigurationList = F2466AE8252FD71900DD3725 /* Build configuration list for PBXProject "iBeauty" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F2466AE4252FD71900DD3725;
+			productRefGroup = F2466AEE252FD71900DD3725 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2466AEC252FD71900DD3725 /* iBeauty */,
+				F2466B05252FD71C00DD3725 /* iBeautyTests */,
+				F2466B10252FD71C00DD3725 /* iBeautyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2466AEB252FD71900DD3725 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2466B00252FD71C00DD3725 /* LaunchScreen.storyboard in Resources */,
+				F2466AFD252FD71C00DD3725 /* Assets.xcassets in Resources */,
+				F2466AF8252FD71900DD3725 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2466B04252FD71C00DD3725 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2466B0F252FD71C00DD3725 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02211F2716DC9E07911FDE9C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iBeauty/Pods-iBeauty-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iBeauty/Pods-iBeauty-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iBeauty/Pods-iBeauty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1855C824D348EBD663D7FF46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iBeautyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38E006C562C94E4F43956C38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iBeautyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E57DBD52AE5BF0B7EE05C641 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iBeauty-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2466AE9252FD71900DD3725 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2C87AD325420AAA007934C4 /* EmployeeViewController.swift in Sources */,
+				F2C493732567642500042CDA /* TimeViewController.swift in Sources */,
+				F2C4935F256754C900042CDA /* AppContextHelper.swift in Sources */,
+				F21F5AC125758E6200C9CF14 /* EmployeeModel.swift in Sources */,
+				F2466AF5252FD71900DD3725 /* ViewController.swift in Sources */,
+				F2466AF1252FD71900DD3725 /* AppDelegate.swift in Sources */,
+				F2C4934825604B5900042CDA /* LoginViewController.swift in Sources */,
+				F21F5A9D2568556B00C9CF14 /* PerfilViewController.swift in Sources */,
+				F2C4936E2567626E00042CDA /* CustomDatePickerView.swift in Sources */,
+				F2C4936925675CEE00042CDA /* BaseViewController.swift in Sources */,
+				F2C87ADD25420B34007934C4 /* AlertConfirmationViewController.swift in Sources */,
+				F2466AFB252FD71900DD3725 /* iBeauty.xcdatamodeld in Sources */,
+				F2C87AE225421B7F007934C4 /* MapViewController.swift in Sources */,
+				F21F5ACA25758EA300C9CF14 /* DateScheduleModel.swift in Sources */,
+				F2C87AD825420B10007934C4 /* ScheduleViewController.swift in Sources */,
+				F207E91425392A9F005D512D /* SalonListViewController.swift in Sources */,
+				F21F5AB925758E4E00C9CF14 /* ServiceModel.swift in Sources */,
+				F2C4935A256754B100042CDA /* String+Extension.swift in Sources */,
+				F2B874D62537AE79008A0F71 /* CategoriesViewController.swift in Sources */,
+				F2C4935025604B6F00042CDA /* FirstViewController.swift in Sources */,
+				F2C87AC925420193007934C4 /* RateViewController.swift in Sources */,
+				F2C49364256759C100042CDA /* MaskTextField.swift in Sources */,
+				F2C4935525604B7D00042CDA /* RegisterViewController.swift in Sources */,
+				F23B396C254BA23D00269118 /* SuccessConfirmViewController.swift in Sources */,
+				F21F5AD225758EFB00C9CF14 /* SalonModel.swift in Sources */,
+				F2B874DB2537AED5008A0F71 /* CategoriesTableViewCell.swift in Sources */,
+				F2C87ACE254201A3007934C4 /* ServiceViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2466B02252FD71C00DD3725 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2466B0B252FD71C00DD3725 /* iBeautyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2466B0D252FD71C00DD3725 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2466B16252FD71C00DD3725 /* iBeautyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2466B08252FD71C00DD3725 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2466AEC252FD71900DD3725 /* iBeauty */;
+			targetProxy = F2466B07252FD71C00DD3725 /* PBXContainerItemProxy */;
+		};
+		F2466B13252FD71C00DD3725 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2466AEC252FD71900DD3725 /* iBeauty */;
+			targetProxy = F2466B12252FD71C00DD3725 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F2466AF6252FD71900DD3725 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2466AF7252FD71900DD3725 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F2466AFE252FD71C00DD3725 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2466AFF252FD71C00DD3725 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F2466B18252FD71C00DD3725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F2466B19252FD71C00DD3725 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2466B1B252FD71C00DD3725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29EB86296E2D804812CEFD95 /* Pods-iBeauty.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5B6733M688;
+				INFOPLIST_FILE = iBeauty/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibeauty.iBeauty;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2466B1C252FD71C00DD3725 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E8FD3FCB0F5C29CCE1B5819 /* Pods-iBeauty.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5B6733M688;
+				INFOPLIST_FILE = iBeauty/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibeauty.iBeauty;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F2466B1E252FD71C00DD3725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F01C64B5D63095D275EC3AA1 /* Pods-iBeautyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZVL2ANYP3;
+				INFOPLIST_FILE = iBeautyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibeauty.iBeautyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iBeauty.app/iBeauty";
+			};
+			name = Debug;
+		};
+		F2466B1F252FD71C00DD3725 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE4CB018F82BF4E5BDB7015C /* Pods-iBeautyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZVL2ANYP3;
+				INFOPLIST_FILE = iBeautyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibeauty.iBeautyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iBeauty.app/iBeauty";
+			};
+			name = Release;
+		};
+		F2466B21252FD71C00DD3725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0FF7A50CB01733C7DC5AE3 /* Pods-iBeautyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZVL2ANYP3;
+				INFOPLIST_FILE = iBeautyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibeauty.iBeautyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iBeauty;
+			};
+			name = Debug;
+		};
+		F2466B22252FD71C00DD3725 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 444533C8ACD8E914B4B03149 /* Pods-iBeautyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6ZVL2ANYP3;
+				INFOPLIST_FILE = iBeautyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibeauty.iBeautyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iBeauty;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2466AE8252FD71900DD3725 /* Build configuration list for PBXProject "iBeauty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2466B18252FD71C00DD3725 /* Debug */,
+				F2466B19252FD71C00DD3725 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2466B1A252FD71C00DD3725 /* Build configuration list for PBXNativeTarget "iBeauty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2466B1B252FD71C00DD3725 /* Debug */,
+				F2466B1C252FD71C00DD3725 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2466B1D252FD71C00DD3725 /* Build configuration list for PBXNativeTarget "iBeautyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2466B1E252FD71C00DD3725 /* Debug */,
+				F2466B1F252FD71C00DD3725 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2466B20252FD71C00DD3725 /* Build configuration list for PBXNativeTarget "iBeautyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2466B21252FD71C00DD3725 /* Debug */,
+				F2466B22252FD71C00DD3725 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F2466AF9252FD71900DD3725 /* iBeauty.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F2466AFA252FD71900DD3725 /* iBeauty.xcdatamodel */,
+			);
+			currentVersion = F2466AFA252FD71900DD3725 /* iBeauty.xcdatamodel */;
+			path = iBeauty.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F2466AE5252FD71900DD3725 /* Project object */;
+}
