@@ -23,17 +23,22 @@ class PerfilViewController: UIViewController {
     func updateValues(){
         if AppContextHelper.share.isLogged ?? false{
             emailLabel.text = AppContextHelper.share.email
-            datasource = ["Logout"]
+            datasource = ["Editar dados", "Alterar senha", "Meus agendamentos", "Logout"]
         }
         else{
             emailLabel.text = ""
             datasource = ["Login"]
         }
-        tableView.reloadData()    }
+        tableView.reloadData()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         updateValues()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
 }
@@ -60,12 +65,30 @@ extension PerfilViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if AppContextHelper.share.isLogged ?? false{
-            
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstNav"){
-                
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true, completion: nil)
+            if datasource[indexPath.row] == "Editar dados"{
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditDataViewController"){
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else if datasource[indexPath.row] == "Alterar senha"{
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController"){
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else if datasource[indexPath.row] == "Meus agendamentos"{
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyAppointmentsViewController"){
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else if datasource[indexPath.row] == "Logout"{
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstNav"){
+                    
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
+            
+            
         }
         else{
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController{

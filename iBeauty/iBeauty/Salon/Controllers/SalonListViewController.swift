@@ -8,6 +8,8 @@
 import UIKit
 import CoreLocation
 import GooglePlaces
+import Cosmos
+import SVProgressHUD
 
 class SalonListViewController: UIViewController {
 
@@ -21,10 +23,9 @@ class SalonListViewController: UIViewController {
     
     var havePlace = false
     
-    var dataSource:[SalonModel] = [SalonModel.init(image: UIImage.init(named: "salao1"), name: "People Beauty", address: "Av. Ipiranga, 6881 - Prédio 41 - Partenon, Porto Alegre - RS", rate: 3, coordinates: CLLocation(latitude: -30.057296, longitude: -51.1752087)), SalonModel.init(image: UIImage.init(named: "salao2"), name: "Corte Zero Bourbon Ipiranga", address: "Av. Ipiranga, 5200 - loja 92 - Partenon, Porto Alegre - RS", rate: 4, coordinates: CLLocation(latitude: -30.055883, longitude: -51.187499)), SalonModel.init(image: UIImage.init(named: "salao3"), name: "Santo Ofício Cabelo e Arte", address: "R Valparaíso, 634 - Jd Botânico, Porto Alegre - RS", rate: 5, coordinates: CLLocation(latitude: -30.053603, longitude: -51.188123))]
+    var dataSource:[SalonModel] = []
     
-   
-    
+    var category:CategoryModel?
     var service:ServiceModel?
     var timeText:String?
     var dateText:String?
@@ -33,31 +34,105 @@ class SalonListViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     var currentPlacemark:CLPlacemark?
+    var dateMonthYear:String?
+    var haveLocation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let dateFormatterWeekDay = DateFormatter()
+        dateFormatterWeekDay.dateFormat = "dd/MM/yyyy"
+        dateFormatterWeekDay.locale = Locale.init(identifier: "pt_BR")
+        dateMonthYear = dateFormatterWeekDay.string(from: (dateModel?.date)!)
+        
+        tableView.tableFooterView = UIView()
+        
+//        SVProgressHUD.show()
+//        SalonAPI().getSalonByService(idService: service?.serviceId ?? "") { salons, error in
+//            DispatchQueue.main.async {
+//                SVProgressHUD.dismiss()
+//            }
+//            if error == nil{
+//                self.dataSource = salons ?? []
+//                self.tableView.reloadData()
+//            } else {
+//                print(error)
+//            }
+//        }
         
         self.title = categoryType?.text
         coreLocation()
+        callGeocode()
         
-//        locationLabel.text = locationManager.location.cit
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
+    }
+    
+    private func callGeocode(){
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(locationManager.location ?? CLLocation()) { (placemarks, error) in
-            if (error != nil){
-                print("error in reverseGeocode")
-            }
-            let placemark = placemarks! as [CLPlacemark]
-            if placemark.count>0{
-                let placemark = placemarks![0]
-                self.currentPlacemark = placemark
-                print(placemark.locality!)
-                print(placemark.administrativeArea!)
-                print(placemark.country!)
+        if let lml = locationManager.location{
+            geocoder.reverseGeocodeLocation(lml) { (placemarks, error) in
+                if (error != nil){
+                    print("error in reverseGeocode")
+                    self.haveLocation = false
+                    self.callAPI()
+                }
+                let placemark = placemarks! as [CLPlacemark]
+                if placemark.count>0{
+                    let placemark = placemarks![0]
+                    self.currentPlacemark = placemark
 
-                self.locationLabel.text = "\(placemark.locality ?? "")"
+                    self.locationLabel.text = "\(placemark.locality ?? "")"
+                    
+                    self.haveLocation = true
+                    self.callAPI()
+                    
+                } else{
+                    self.haveLocation = false
+                    self.callAPI()
+                }
+            }
+        } else {
+            callAPI()
+        }
+    }
+    
+    private func callAPI(){
+        var lat = 0.0
+        var lng = 0.0
+        
+        if haveLocation {
+            if let la = self.currentPlacemark?.location?.coordinate.latitude, let lg = self.currentPlacemark?.location?.coordinate.longitude{
+                lat = la
+                lng = lg
+            } else {
+                haveLocation = false
+            }
+        }
+        
+        if havePlace {
+            haveLocation = true
+            
+            if let la = googlePlace?.coordinate.latitude, let lg = googlePlace?.coordinate.longitude{
+                lat = la
+                lng = lg
+            } else {
+                haveLocation = false
+            }
+        }
+        
+        SVProgressHUD.show()
+        SalonAPI().getSalonByService(idService: service?.serviceId ?? "", lat: lat, lng: lng, dayMonthYear: dateMonthYear ?? "", hour: timeText ?? "", haveLocation: haveLocation) { salons, error in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            if error == nil{
+                self.dataSource = salons ?? []
+                self.tableView.reloadData()
+            } else {
+                print(error)
             }
         }
     }
@@ -74,10 +149,6 @@ class SalonListViewController: UIViewController {
           // 5
           locationManager.requestWhenInUseAuthorization()
         }
-    }
-    
-    @objc func scheduleButtonAction(sender: UIButton){
-        
     }
     
     @objc func rateButtonAction(sender: UIButton){
@@ -112,35 +183,47 @@ extension SalonListViewController: UITableViewDataSource, UITableViewDelegate{
         cell.rateButton.addTarget(self, action:#selector(rateButtonAction(sender:)), for: .touchUpInside)
         cell.rateButton.tag = indexPath.row
         
-       
+        if let rate = dataSource[indexPath.row].rating {
+            cell.cosmosRatings.isHidden = false
+            cell.cosmosRatings.rating = rate
+        } else {
+            cell.cosmosRatings.isHidden = true
+        }
         
         if havePlace{
-            
+
             let location1 = CLLocation(latitude: googlePlace!.coordinate.latitude, longitude: googlePlace!.coordinate.longitude)
-            let location2 = dataSource[indexPath.row].coordinates
-            
-            var distanceMeter = location1.distance(from: location2!)
-            print(distanceMeter)
-            
-//            cell.distanceLabel.text = "\(distanceMeter)m"
-            
-            let distanceString = String(format: "%.2f", distanceMeter)
-            
-            cell.distanceLabel.text = "\(distanceString)m"
+            let location2:CLLocation?
+                
+            if let la = dataSource[indexPath.row].address?.lat, let lg = dataSource[indexPath.row].address?.lng{
+                location2 = CLLocation(latitude: la, longitude: lg)
+
+                let distanceMeter = location1.distance(from: location2!)
+
+                let distanceString = String(format: "%.2f", distanceMeter)
+                
+                cell.distanceLabel.text = "\(distanceString)m"
+            } else{
+                cell.distanceLabel.text = ""
+            }
         }
         else{
             let location1 = locationManager.location
-            let location2 = dataSource[indexPath.row].coordinates
             
-            let distanceMeter = location1?.distance(from: location2!)
-            print(distanceMeter)
-            
-            let distanceString = String(format: "%.2f", distanceMeter!)
-            
-            cell.distanceLabel.text = "\(distanceString)m"
+            let location2:CLLocation?
+                
+            if let la = dataSource[indexPath.row].address?.lat, let lg = dataSource[indexPath.row].address?.lng, let loc1 = location1{
+                location2 = CLLocation(latitude: la, longitude: lg)
+
+                let distanceMeter = loc1.distance(from: location2!)
+
+                let distanceString = String(format: "%.2f", distanceMeter)
+                
+                cell.distanceLabel.text = "\(distanceString)m"
+            } else{
+                cell.distanceLabel.text = ""
+            }
         }
-        
-        
         
         return cell
     }
@@ -151,11 +234,6 @@ extension SalonListViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "ServiceViewController") as? ServiceViewController{
-//            vc.salon = dataSource[sender.tag]
-//            
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
         
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -180,6 +258,8 @@ class SalonListTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var rateButton: UIButton!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var cosmosRatings: CosmosView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -194,9 +274,9 @@ class SalonListTableViewCell: UITableViewCell {
 
     
     func setupCell(salon:SalonModel){
-        self.imageSalon.image = salon.image
+        self.imageSalon.image = UIImage.init(named: "salao1")
         self.nameLabel.text = salon.name
-        self.addressLabel.text = salon.address
+        self.addressLabel.text = "\(salon.address?.street ?? ""), \(salon.address?.number ?? "") \(salon.address?.complement ?? "") - \(salon.address?.city ?? ""), \(salon.address?.state ?? "")"
     }
 }
 
@@ -253,6 +333,9 @@ extension SalonListViewController: MapViewControllerDelegate{
         havePlace = true
         googlePlace = place
         locationLabel.text = place.name
+        
+        callAPI()
+        
         tableView.reloadData()
     }
 }

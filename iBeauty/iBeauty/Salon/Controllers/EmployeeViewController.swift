@@ -17,13 +17,22 @@ class EmployeeViewController: UIViewController {
     var dateText:String?
     var dateModel:DateScheduleModel?
     
-    var dataSource:[EmployeeModel] = [EmployeeModel.init(name: "Sem Prefêrencia", price: "R$ 24,00", image: nil),EmployeeModel.init(name: "Jo", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Raquel", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Rê", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Rita", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Sheila", price: "R$ 24,00", image: nil)]
+//    var dataSource:[EmployeeModel] = [EmployeeModel.init(name: "Sem Preferência", price: "R$ 24,00", image: nil),EmployeeModel.init(name: "Jo", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Raquel", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Rê", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Rita", price: "R$ 24,00", image: nil), EmployeeModel.init(name: "Sheila", price: "R$ 24,00", image: nil)]
+    
+    var dataSource:[EmployeeModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.title = service?.name
+        
+        if let employees = salon?.employees, !employees.isEmpty {
+            var arrayEmployees = [EmployeeModel()]
+            arrayEmployees.append(contentsOf: employees)
+            self.dataSource = arrayEmployees
+        }
+        tableView.reloadData()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
@@ -37,13 +46,17 @@ extension EmployeeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as! EmployeeTableViewCell
         
-        cell.setupCell(employee: dataSource[indexPath.row])
+        if indexPath.row == 0 {
+            cell.nameLabel.text = "Sem Preferência"
+        } else {
+            cell.setupCell(employee: dataSource[indexPath.row])
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 79
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -56,7 +69,6 @@ extension EmployeeViewController: UITableViewDelegate, UITableViewDataSource{
             vc.dateText = self.dateText
             vc.dateModel = self.dateModel
             vc.timeText = self.timeText
-            vc.service = self.service
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -65,8 +77,6 @@ extension EmployeeViewController: UITableViewDelegate, UITableViewDataSource{
 class EmployeeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var employeeImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -80,8 +90,6 @@ class EmployeeTableViewCell: UITableViewCell {
     
     func setupCell(employee:EmployeeModel){
         nameLabel.text = employee.name
-        priceLabel.text = employee.price
-        employeeImage.image = employee.image
     }
 }
 

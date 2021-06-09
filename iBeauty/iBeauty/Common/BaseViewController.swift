@@ -26,4 +26,9 @@ class BaseViewController: UIViewController {
         self.view.endEditing(true)
     }
 
+    
+    func showAlertToast(title:String, displayTime:CGFloat){
+        let alert = ViewAlert(title: title, image: "", displayTime: displayTime)
+        alert.display()
+    }
 }

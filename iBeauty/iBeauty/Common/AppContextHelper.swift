@@ -12,12 +12,23 @@ public class AppContextHelper{
     public static let share = AppContextHelper()
     private let userDefaults = UserDefaults.standard
     
+    public var currentUser:UserModel?
+    
     public var rememberMe:Bool? {
         get{
             return userDefaults.bool(forKey: "remember-me-key")
         }
         set{
             userDefaults.set(newValue, forKey: "remember-me-key")
+        }
+    }
+    
+    public var userID:String? {
+        get{
+            return userDefaults.string(forKey: "user-ID-key")
+        }
+        set{
+            userDefaults.set(newValue, forKey: "user-ID-key")
         }
     }
     

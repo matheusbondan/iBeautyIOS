@@ -6,29 +6,66 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class RateViewController: UIViewController {
+class RateViewController: BaseViewController {
 
     @IBOutlet weak var salonImage: UIImageView!
     var salon:SalonModel?
     
     @IBOutlet weak var tableView: UITableView!
     
-    var datasource:[RateModel] = [RateModel(userName: "Leticia Rossignolo", message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), RateModel(userName: "Talita Jacques", message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."), RateModel(userName: "Celma Matos", message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras sed felis eget velit aliquet sagittis. Nullam ac tortor vitae purus faucibus ornare. Tincidunt vitae semper quis lectus nulla at. Semper quis lectus nulla at volutpat diam. Et malesuada fames ac turpis egestas maecenas pharetra convallis. Feugiat pretium nibh ipsum consequat nisl vel pretium. Facilisis mauris sit amet massa vitae tortor condimentum. Duis at tellus at urna condimentum mattis. Amet risus nullam eget felis eget nunc lobortis mattis. Donec adipiscing tristique risus nec feugiat in fermentum posuere urna."), RateModel(userName: "Eliane G Martins", message: "Tempus quam pellentesque nec nam aliquam sem. Elementum nibh tellus molestie nunc non blandit massa. Massa ultricies mi quis hendrerit dolor magna. Tortor posuere ac ut consequat semper viverra nam. Mattis pellentesque id nibh tortor id aliquet. Justo nec ultrices dui sapien eget mi. Fringilla ut morbi tincidunt augue interdum velit euismod. Vestibulum sed arcu non odio euismod lacinia at. Leo urna molestie at elementum eu facilisis. Enim praesent elementum facilisis leo. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Non odio euismod lacinia at quis. Porta non pulvinar neque laoreet. Praesent tristique magna sit amet purus gravida quis.")]
+    var datasource:[RateModel] = []
+    @IBOutlet weak var placeholder: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.salonImage.image = salon?.image
+        self.salonImage.image = UIImage.init(named: "salao1")
 
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         tableView.estimatedRowHeight = 45
         
+        datasource = salon?.ratings ?? []
+        tableView.reloadData()
+        
         self.title = "Avaliações"
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        SVProgressHUD.show()
+        
+        RateAPI.getRatingsBySalon(salonID: salon?.idSalon ?? "") { ratings, err in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            if err == nil {
+                self.datasource = ratings ?? []
+                
+                if self.datasource.count == 0{
+                    self.placeholder.isHidden = false
+                } else {
+                    self.placeholder.isHidden = true
+                }
+                
+                self.tableView.reloadData()
+            } else {
+                self.showAlertToast(title: "Ocorreu um erro ao carregar as avaliações", displayTime: 10.0)
+            }
+        }
+    }
+    
+    
+    @IBAction func addRateButtonAction(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AddCommentViewController") as? AddCommentViewController{
+            vc.salon = self.salon
 
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
+    
 }
 
 extension RateViewController:UITableViewDataSource, UITableViewDelegate{
@@ -41,8 +78,8 @@ extension RateViewController:UITableViewDataSource, UITableViewDelegate{
         
         let model = datasource[indexPath.row]
         
-        cell.titleLabel.text = "\(model.userName ?? "") avaliou \(self.salon?.name ?? "")"
-        cell.descLabel.text = model.message
+        cell.titleLabel.text = "\(model.user?.username ?? "") avaliou \(self.salon?.name ?? "")"
+        cell.descLabel.text = model.comment
         
         return cell
     }
@@ -51,18 +88,6 @@ extension RateViewController:UITableViewDataSource, UITableViewDelegate{
         return UITableView.automaticDimension
     }
     
-}
-
-class RateModel:NSObject {
-    var userName:String?
-    var message:String?
-    var rate:Double?
-    
-    init(userName:String?, message:String?) {
-        self.userName = userName
-        self.message = message
-        self.rate = 5
-    }
 }
 
 class RateTableViewCell: UITableViewCell {

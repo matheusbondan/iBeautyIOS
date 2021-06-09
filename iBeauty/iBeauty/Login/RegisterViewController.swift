@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RegisterViewController: BaseViewController {
 
@@ -21,7 +22,7 @@ class RegisterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupFields()
     }
     
     private func setupFields(){
@@ -58,7 +59,25 @@ class RegisterViewController: BaseViewController {
     }
     
     @IBAction func registerButtonAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        SVProgressHUD.show()
+        LoginAPI().register(name: nameTextField.text ?? "", email: emailTextField.text ?? "", phone: phoneTextField.text ?? "", cpf: cpfTextField.text ?? "", password: passwordTextField.text ?? "") { (user, error) in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            if error == nil{
+                self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                if error?.message == ""{
+                    error?.message = "Ocorreu um erro"
+                }
+                
+                self.showAlertToast(title: error?.message ?? "Ocorreu um erro", displayTime: 10)
+                print("ERROOO: \(error)")
+            }
+        }
+        
+        
     }
     
 

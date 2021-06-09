@@ -6,18 +6,63 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class CategoriesViewController: UIViewController {
+class CategoriesViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource:[CategorieModelCell] = [CategorieModelCell.init(image: UIImage.init(named: "manicure"), text: "Manicure e Pedicure"),CategorieModelCell.init(image: UIImage.init(named: "maquiagem"), text: "Maquiagem"),CategorieModelCell.init(image: UIImage.init(named: "cabelo"), text: "Cabelo"), CategorieModelCell.init(image: UIImage.init(named: "barbearia"), text: "Barbearia"),  CategorieModelCell.init(image: UIImage.init(named: "depilacao"), text: "Depilação") ,  CategorieModelCell.init(image: UIImage.init(named: "massagem"), text: "Massagem")]
+    
+    var dataSource:[CategoryModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SVProgressHUD.show()
+        SalonAPI().getCategories { (categories, error) in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            if error == nil{
+                self.dataSource = categories ?? []
+            }
+            else{
+                self.showAlertToast(title: "Ocorreu um erro para listas as categorias", displayTime: 10.0)
+            }
+            self.tableView.reloadData()
+        }
     }
     
+    func getImageFromType(type:String) -> UIImage {
+        switch type {
+        case "manicure":
+            return UIImage.init(named: "manicure")!
+        case "makeup":
+            return UIImage.init(named: "maquiagem")!
+        case "hair":
+            return UIImage.init(named: "cabelo")!
+        case "barber":
+            return UIImage.init(named: "barbearia")!
+        case "depilation":
+            return UIImage.init(named: "depilacao")!
+        case "massage":
+            return UIImage.init(named: "massagem")!
+        default:
+            return UIImage.init(named: "")!
+        }
+    }
+    
+    @IBAction func searchButtonAction(_ sender: Any) {
+        SalonAPI().getCategories { (categories, error) in
+            if error == nil{
+                self.dataSource = categories ?? []
+            }
+            else{
+                self.showAlertToast(title: "Ocorreu um erro para listas as categorias", displayTime: 10.0)
+            }
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate{
@@ -30,7 +75,7 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate{
         
         let model = dataSource[indexPath.row]
         
-        cell.setupCell(text: model.text!, image: model.image!)
+        cell.setupCell(text: model.name ?? "", image: self.getImageFromType(type: model.type ?? ""))
         
         return cell
         
@@ -42,11 +87,9 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "SalonListViewController"){
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ServiceViewController") as? ServiceViewController{
             
+            vc.category = dataSource[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
         

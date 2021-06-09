@@ -1,4 +1,6 @@
 PODS:
+  - Alamofire (5.4.2)
+  - Cosmos (23.0.0)
   - GoogleMaps (4.0.0):
     - GoogleMaps/Maps (= 4.0.0)
   - GoogleMaps/Base (4.0.0)
@@ -6,20 +8,30 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (4.0.0):
     - GoogleMaps/Base (= 4.0.0)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - Alamofire
+  - Cosmos (~> 23.0)
   - GoogleMaps
   - GooglePlaces
+  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Cosmos
     - GoogleMaps
     - GooglePlaces
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   GoogleMaps: b7f7fc569a9b354a3af0d9729dbec40957b7d41e
   GooglePlaces: ca8d4aba09ba79e0a829cf1dca03a41de6a09016
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 3646f8d75378bd19e0e21fb9070ab420fb9eecf9
+PODFILE CHECKSUM: 4d9bedb05f67bb187331465a2576357380c2659b
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

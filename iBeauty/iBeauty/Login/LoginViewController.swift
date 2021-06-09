@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol LoginViewControllerDelegate {
     func login()
@@ -53,15 +54,36 @@ class LoginViewController: BaseViewController {
         AppContextHelper.share.email = emailTextField.text
         AppContextHelper.share.isLogged = true
          
-        if isLoginIntern{
-            self.dismiss(animated: true, completion: nil)
-        }
-        else{
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "MainNavController"){
-                vc.modalPresentationStyle = .overFullScreen
-                self.present(vc, animated: true, completion: nil)
+        SVProgressHUD.show()
+        LoginAPI().login(email: emailTextField.text ?? "", password: passwordTextField.text ?? "") { (user, error) in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            if error == nil{
+                AppContextHelper.share.currentUser = user
+                AppContextHelper.share.userID = user?.userId ?? ""
+                print("SUCESSO: \(user)")
+                if self.isLoginIntern{
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else{
+                    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainNavController"){
+                        vc.modalPresentationStyle = .overFullScreen
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                }
+            }
+            else{
+                if error?.message == ""{
+                    error?.message = "Ocorreu um erro"
+                }
+                
+                self.showAlertToast(title: error?.message ?? "Ocorreu um erro", displayTime: 10)
+                print("ERROOO: \(error)")
             }
         }
+        
+        
     }
     
     @IBAction func registerButtonAction(_ sender: Any) {

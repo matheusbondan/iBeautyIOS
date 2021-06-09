@@ -11,13 +11,17 @@ class ServiceViewController: UIViewController {
 
     var salon:SalonModel?
     
-    @IBOutlet weak var tableView: UITableView!
-    var dataSource:[ServiceModel] = [ServiceModel.init(name: "Manicure Decorado", price: "A partir de R$ 25,00", time: "40m"), ServiceModel.init(name: "Manicure Francesinha", price: "R$ 24,00", time: "1h"), ServiceModel.init(name: "Manicure Simples", price: "R$ 20,00", time: "1h"), ServiceModel.init(name: "Pedicure Decorada", price: "A partir de R$ 35,00", time: "40m"), ServiceModel.init(name: "Pedicure Francesinha", price: "R$ 34,00", time: "1h"), ServiceModel.init(name: "Pedicure Simples", price: "R$ 30,00", time: "1h")]
+    var category:CategoryModel?
     
+    @IBOutlet weak var tableView: UITableView!
+//    var dataSource:[ServiceModel] = [ServiceModel.init(name: "Manicure Decorado", price: "A partir de R$ 25,00", time: "40m"), ServiceModel.init(name: "Manicure Francesinha", price: "R$ 24,00", time: "1h"), ServiceModel.init(name: "Manicure Simples", price: "R$ 20,00", time: "1h"), ServiceModel.init(name: "Pedicure Decorada", price: "A partir de R$ 35,00", time: "40m"), ServiceModel.init(name: "Pedicure Francesinha", price: "R$ 34,00", time: "1h"), ServiceModel.init(name: "Pedicure Simples", price: "R$ 30,00", time: "1h")]
+    var dataSource:[ServiceModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dataSource = category?.services ?? []
+        tableView.reloadData()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
     }
@@ -38,7 +42,7 @@ extension ServiceViewController:UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 79
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -53,7 +57,7 @@ extension ServiceViewController:UITableViewDelegate, UITableViewDataSource{
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "TimeViewController") as? TimeViewController{
             vc.service = dataSource[indexPath.row]
-            
+            vc.category = self.category
             navigationController?.pushViewController(vc, animated: true)
         }
         
@@ -63,8 +67,8 @@ extension ServiceViewController:UITableViewDelegate, UITableViewDataSource{
 class ServiceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+//    @IBOutlet weak var priceLabel: UILabel!
+//    @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -80,8 +84,8 @@ class ServiceTableViewCell: UITableViewCell {
     
     func setupCell(service:ServiceModel){
         nameLabel.text = service.name
-        priceLabel.text = service.price
-        timeLabel.text = service.time
+//        priceLabel.text = service.price
+//        timeLabel.text = service.time
     }
 }
 

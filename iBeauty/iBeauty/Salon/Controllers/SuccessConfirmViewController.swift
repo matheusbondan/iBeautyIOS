@@ -36,7 +36,7 @@ class SuccessConfirmViewController: UIViewController {
         self.title = "Agendamento"
         
         
-        salonImage.image = self.salon?.image
+        salonImage.image = UIImage.init(named: "salao1")
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, dd 'de' MMMM"
@@ -46,10 +46,10 @@ class SuccessConfirmViewController: UIViewController {
         dateCompleteLabel.text = dateComplete
         
         timeLabel.text = "às \(timeText ?? "")"
-        addressLabel.text = self.salon?.address
+        
+        addressLabel.text = "\(salon?.address?.street ?? ""), \(salon?.address?.number ?? "") \(salon?.address?.complement ?? "") - \(salon?.address?.city ?? ""), \(salon?.address?.state ?? "")"
         employeeName.text = self.employee?.name
         employeeService.text = self.service?.name
-        priceService.text = self.employee?.price
         
     }
     

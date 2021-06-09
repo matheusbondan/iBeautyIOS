@@ -20,13 +20,18 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Para acessar sua localização</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Para acessar sua localização</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Para acessar sua localização</string>
 	<key>NSLocationUsageDescription</key>
+	<string>Para acessar sua localização</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Para acessar sua localização</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
@@ -46,8 +51,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

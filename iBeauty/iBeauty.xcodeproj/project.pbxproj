@@ -11,6 +11,13 @@
 		9E77D05997B5E37AED346CA8 /* Pods_iBeautyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC90E7D7D7328945BC68A593 /* Pods_iBeautyUITests.framework */; };
 		EB35F6CD1CFAD29B3EB73BFB /* Pods_iBeauty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB577BF7A09376B53A4A864E /* Pods_iBeauty.framework */; };
 		F207E91425392A9F005D512D /* SalonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207E91325392A9F005D512D /* SalonListViewController.swift */; };
+		F20D32FC266488CF00FFD97E /* ScheduleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20D32FB266488CE00FFD97E /* ScheduleAPI.swift */; };
+		F20D32FE2664898800FFD97E /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20D32FD2664898800FFD97E /* AppointmentModel.swift */; };
+		F21EBFF9262B771E00B4B9BA /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21EBFF8262B771E00B4B9BA /* NetworkRequests.swift */; };
+		F21EC007262B779900B4B9BA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21EC006262B779900B4B9BA /* APIError.swift */; };
+		F21EC00C262B781B00B4B9BA /* APIErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21EC00B262B781B00B4B9BA /* APIErrorModel.swift */; };
+		F21EC017262B8A2800B4B9BA /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21EC016262B8A2800B4B9BA /* LoginAPI.swift */; };
+		F21EC01D262B950600B4B9BA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21EC01C262B950600B4B9BA /* UserModel.swift */; };
 		F21F5A9D2568556B00C9CF14 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5A9C2568556B00C9CF14 /* PerfilViewController.swift */; };
 		F21F5AB925758E4E00C9CF14 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5AB825758E4E00C9CF14 /* ServiceModel.swift */; };
 		F21F5AC125758E6200C9CF14 /* EmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F5AC025758E6200C9CF14 /* EmployeeModel.swift */; };
@@ -42,6 +49,18 @@
 		F2C87AD825420B10007934C4 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87AD725420B10007934C4 /* ScheduleViewController.swift */; };
 		F2C87ADD25420B34007934C4 /* AlertConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87ADC25420B34007934C4 /* AlertConfirmationViewController.swift */; };
 		F2C87AE225421B7F007934C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C87AE125421B7F007934C4 /* MapViewController.swift */; };
+		F2E5E0AB26685F1B0027406A /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0AA26685F1B0027406A /* AddCommentViewController.swift */; };
+		F2E5E0AD26694F480027406A /* RateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0AC26694F480027406A /* RateAPI.swift */; };
+		F2E5E0AF26694FEC0027406A /* RateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0AE26694FEC0027406A /* RateModel.swift */; };
+		F2E5E0B2266AA47E0027406A /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0B1266AA47D0027406A /* ChangePasswordViewController.swift */; };
+		F2E5E0B4266AA4940027406A /* MyAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0B3266AA4940027406A /* MyAppointmentsViewController.swift */; };
+		F2E5E0B6266AA4E20027406A /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0B5266AA4E20027406A /* EditDataViewController.swift */; };
+		F2E5E0B8266AAA6C0027406A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0B7266AAA6B0027406A /* UserAPI.swift */; };
+		F2E5E0BA266ACD460027406A /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E5E0B9266ACD460027406A /* AddressModel.swift */; };
+		F2EFEED8262D486400495027 /* ViewAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EFEED7262D486400495027 /* ViewAlert.swift */; };
+		F2EFEEDD262D489600495027 /* ViewAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2EFEEDC262D489600495027 /* ViewAlert.xib */; };
+		F2EFEEE3262D4E3900495027 /* SalonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EFEEE2262D4E3900495027 /* SalonAPI.swift */; };
+		F2EFEEE8262D4ED800495027 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EFEEE7262D4ED800495027 /* CategoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +91,13 @@
 		DC90E7D7D7328945BC68A593 /* Pods_iBeautyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBeautyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01C64B5D63095D275EC3AA1 /* Pods-iBeautyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBeautyTests.debug.xcconfig"; path = "Target Support Files/Pods-iBeautyTests/Pods-iBeautyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F207E91325392A9F005D512D /* SalonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonListViewController.swift; sourceTree = "<group>"; };
+		F20D32FB266488CE00FFD97E /* ScheduleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPI.swift; sourceTree = "<group>"; };
+		F20D32FD2664898800FFD97E /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentModel.swift; sourceTree = "<group>"; };
+		F21EBFF8262B771E00B4B9BA /* NetworkRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
+		F21EC006262B779900B4B9BA /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		F21EC00B262B781B00B4B9BA /* APIErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorModel.swift; sourceTree = "<group>"; };
+		F21EC016262B8A2800B4B9BA /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		F21EC01C262B950600B4B9BA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F21F5A9C2568556B00C9CF14 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		F21F5AB825758E4E00C9CF14 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		F21F5AC025758E6200C9CF14 /* EmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeModel.swift; sourceTree = "<group>"; };
@@ -109,6 +135,18 @@
 		F2C87AD725420B10007934C4 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		F2C87ADC25420B34007934C4 /* AlertConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfirmationViewController.swift; sourceTree = "<group>"; };
 		F2C87AE125421B7F007934C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F2E5E0AA26685F1B0027406A /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		F2E5E0AC26694F480027406A /* RateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAPI.swift; sourceTree = "<group>"; };
+		F2E5E0AE26694FEC0027406A /* RateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateModel.swift; sourceTree = "<group>"; };
+		F2E5E0B1266AA47D0027406A /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		F2E5E0B3266AA4940027406A /* MyAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppointmentsViewController.swift; sourceTree = "<group>"; };
+		F2E5E0B5266AA4E20027406A /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
+		F2E5E0B7266AAA6B0027406A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		F2E5E0B9266ACD460027406A /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		F2EFEED7262D486400495027 /* ViewAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAlert.swift; sourceTree = "<group>"; };
+		F2EFEEDC262D489600495027 /* ViewAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewAlert.xib; sourceTree = "<group>"; };
+		F2EFEEE2262D4E3900495027 /* SalonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalonAPI.swift; sourceTree = "<group>"; };
+		F2EFEEE7262D4ED800495027 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +203,8 @@
 		F207E8FF25391AAF005D512D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F2EFEED6262D484200495027 /* ViewAlert */,
+				F21EBFF7262B76BC00B4B9BA /* API */,
 				F2C49363256759C100042CDA /* MaskTextField.swift */,
 				F207E90025391AB7005D512D /* SalonCell */,
 				F2C49359256754B100042CDA /* String+Extension.swift */,
@@ -180,6 +220,24 @@
 			children = (
 			);
 			path = SalonCell;
+			sourceTree = "<group>";
+		};
+		F21EBFF7262B76BC00B4B9BA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F21EC00B262B781B00B4B9BA /* APIErrorModel.swift */,
+				F21EC006262B779900B4B9BA /* APIError.swift */,
+				F21EBFF8262B771E00B4B9BA /* NetworkRequests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F21EC01B262B94F600B4B9BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F21EC01C262B950600B4B9BA /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F2466AE4252FD71900DD3725 = {
@@ -242,6 +300,7 @@
 		F2B874C92537ACA6008A0F71 /* Salon */ = {
 			isa = PBXGroup;
 			children = (
+				F2EFEEE1262D4E2200495027 /* API */,
 				F2B874E025391027008A0F71 /* Model */,
 				F2B874DF2539101F008A0F71 /* Controllers */,
 			);
@@ -251,6 +310,7 @@
 		F2B874DF2539101F008A0F71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2E5E0B0266AA45D0027406A /* PerfilConfig */,
 				F2B874D52537AE79008A0F71 /* CategoriesViewController.swift */,
 				F2B874DA2537AED5008A0F71 /* CategoriesTableViewCell.swift */,
 				F207E91325392A9F005D512D /* SalonListViewController.swift */,
@@ -263,6 +323,7 @@
 				F23B396B254BA23D00269118 /* SuccessConfirmViewController.swift */,
 				F2C493722567642500042CDA /* TimeViewController.swift */,
 				F21F5A9C2568556B00C9CF14 /* PerfilViewController.swift */,
+				F2E5E0AA26685F1B0027406A /* AddCommentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +335,10 @@
 				F21F5AC025758E6200C9CF14 /* EmployeeModel.swift */,
 				F21F5AC925758EA300C9CF14 /* DateScheduleModel.swift */,
 				F21F5AD125758EFB00C9CF14 /* SalonModel.swift */,
+				F2EFEEE7262D4ED800495027 /* CategoryModel.swift */,
+				F20D32FD2664898800FFD97E /* AppointmentModel.swift */,
+				F2E5E0AE26694FEC0027406A /* RateModel.swift */,
+				F2E5E0B9266ACD460027406A /* AddressModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,11 +346,43 @@
 		F2C4934625604B4400042CDA /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				F21EC01B262B94F600B4B9BA /* Model */,
 				F2C4934725604B5900042CDA /* LoginViewController.swift */,
 				F2C4934F25604B6F00042CDA /* FirstViewController.swift */,
 				F2C4935425604B7D00042CDA /* RegisterViewController.swift */,
+				F21EC016262B8A2800B4B9BA /* LoginAPI.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F2E5E0B0266AA45D0027406A /* PerfilConfig */ = {
+			isa = PBXGroup;
+			children = (
+				F2E5E0B1266AA47D0027406A /* ChangePasswordViewController.swift */,
+				F2E5E0B3266AA4940027406A /* MyAppointmentsViewController.swift */,
+				F2E5E0B5266AA4E20027406A /* EditDataViewController.swift */,
+			);
+			path = PerfilConfig;
+			sourceTree = "<group>";
+		};
+		F2EFEED6262D484200495027 /* ViewAlert */ = {
+			isa = PBXGroup;
+			children = (
+				F2EFEEDC262D489600495027 /* ViewAlert.xib */,
+				F2EFEED7262D486400495027 /* ViewAlert.swift */,
+			);
+			path = ViewAlert;
+			sourceTree = "<group>";
+		};
+		F2EFEEE1262D4E2200495027 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F2EFEEE2262D4E3900495027 /* SalonAPI.swift */,
+				F20D32FB266488CE00FFD97E /* ScheduleAPI.swift */,
+				F2E5E0AC26694F480027406A /* RateAPI.swift */,
+				F2E5E0B7266AAA6B0027406A /* UserAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +397,7 @@
 				F2466AEA252FD71900DD3725 /* Frameworks */,
 				F2466AEB252FD71900DD3725 /* Resources */,
 				02211F2716DC9E07911FDE9C /* [CP] Copy Pods Resources */,
+				A407087895046C05E25E2D75 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -396,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2466B00252FD71C00DD3725 /* LaunchScreen.storyboard in Resources */,
+				F2EFEEDD262D489600495027 /* ViewAlert.xib in Resources */,
 				F2466AFD252FD71C00DD3725 /* Assets.xcassets in Resources */,
 				F2466AF8252FD71900DD3725 /* Main.storyboard in Resources */,
 			);
@@ -479,6 +578,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A407087895046C05E25E2D75 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iBeauty/Pods-iBeauty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iBeauty/Pods-iBeauty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iBeauty/Pods-iBeauty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E57DBD52AE5BF0B7EE05C641 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -509,13 +625,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2C87AD325420AAA007934C4 /* EmployeeViewController.swift in Sources */,
+				F2EFEED8262D486400495027 /* ViewAlert.swift in Sources */,
+				F2E5E0AD26694F480027406A /* RateAPI.swift in Sources */,
 				F2C493732567642500042CDA /* TimeViewController.swift in Sources */,
+				F21EBFF9262B771E00B4B9BA /* NetworkRequests.swift in Sources */,
+				F21EC00C262B781B00B4B9BA /* APIErrorModel.swift in Sources */,
 				F2C4935F256754C900042CDA /* AppContextHelper.swift in Sources */,
+				F2E5E0AF26694FEC0027406A /* RateModel.swift in Sources */,
 				F21F5AC125758E6200C9CF14 /* EmployeeModel.swift in Sources */,
+				F20D32FC266488CF00FFD97E /* ScheduleAPI.swift in Sources */,
 				F2466AF5252FD71900DD3725 /* ViewController.swift in Sources */,
 				F2466AF1252FD71900DD3725 /* AppDelegate.swift in Sources */,
 				F2C4934825604B5900042CDA /* LoginViewController.swift in Sources */,
+				F2E5E0B8266AAA6C0027406A /* UserAPI.swift in Sources */,
+				F2E5E0BA266ACD460027406A /* AddressModel.swift in Sources */,
 				F21F5A9D2568556B00C9CF14 /* PerfilViewController.swift in Sources */,
+				F2E5E0B4266AA4940027406A /* MyAppointmentsViewController.swift in Sources */,
 				F2C4936E2567626E00042CDA /* CustomDatePickerView.swift in Sources */,
 				F2C4936925675CEE00042CDA /* BaseViewController.swift in Sources */,
 				F2C87ADD25420B34007934C4 /* AlertConfirmationViewController.swift in Sources */,
@@ -523,15 +648,24 @@
 				F2C87AE225421B7F007934C4 /* MapViewController.swift in Sources */,
 				F21F5ACA25758EA300C9CF14 /* DateScheduleModel.swift in Sources */,
 				F2C87AD825420B10007934C4 /* ScheduleViewController.swift in Sources */,
+				F20D32FE2664898800FFD97E /* AppointmentModel.swift in Sources */,
+				F2EFEEE8262D4ED800495027 /* CategoryModel.swift in Sources */,
+				F2EFEEE3262D4E3900495027 /* SalonAPI.swift in Sources */,
 				F207E91425392A9F005D512D /* SalonListViewController.swift in Sources */,
 				F21F5AB925758E4E00C9CF14 /* ServiceModel.swift in Sources */,
+				F2E5E0B2266AA47E0027406A /* ChangePasswordViewController.swift in Sources */,
+				F2E5E0B6266AA4E20027406A /* EditDataViewController.swift in Sources */,
 				F2C4935A256754B100042CDA /* String+Extension.swift in Sources */,
 				F2B874D62537AE79008A0F71 /* CategoriesViewController.swift in Sources */,
 				F2C4935025604B6F00042CDA /* FirstViewController.swift in Sources */,
 				F2C87AC925420193007934C4 /* RateViewController.swift in Sources */,
+				F21EC017262B8A2800B4B9BA /* LoginAPI.swift in Sources */,
 				F2C49364256759C100042CDA /* MaskTextField.swift in Sources */,
 				F2C4935525604B7D00042CDA /* RegisterViewController.swift in Sources */,
+				F21EC01D262B950600B4B9BA /* UserModel.swift in Sources */,
+				F2E5E0AB26685F1B0027406A /* AddCommentViewController.swift in Sources */,
 				F23B396C254BA23D00269118 /* SuccessConfirmViewController.swift in Sources */,
+				F21EC007262B779900B4B9BA /* APIError.swift in Sources */,
 				F21F5AD225758EFB00C9CF14 /* SalonModel.swift in Sources */,
 				F2B874DB2537AED5008A0F71 /* CategoriesTableViewCell.swift in Sources */,
 				F2C87ACE254201A3007934C4 /* ServiceViewController.swift in Sources */,

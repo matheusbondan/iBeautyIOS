@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class ScheduleViewController: UIViewController {
+class ScheduleViewController: BaseViewController {
 
     var salon:SalonModel?
     var service:ServiceModel?
@@ -28,23 +29,32 @@ class ScheduleViewController: UIViewController {
     var daySelectedIndex:Int?
     var timeSelectedIndex:Int?
     
+    var completeDate:String?
+    var dateMonthYear:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
         dateFormatter.locale = Locale.init(identifier: "pt_BR")
-        let nameOfMonth = dateFormatter.string(from: now)
+        let nameOfMonth = dateFormatter.string(from: (dateModel?.date)!)
         monthLabel.text = nameOfMonth.capitalizingFirstLetter()
  
         employeeNameLabel.text = self.employee?.name
-        priceLabel.text = employee?.price
         
         dayLabel.text = dateText
         timeLabel.text = timeText
         
         self.title = self.service?.name
+        
+        let dateFormatterWeekDay = DateFormatter()
+        dateFormatterWeekDay.dateFormat = "dd/MM/yyyy"
+        dateFormatterWeekDay.locale = Locale.init(identifier: "pt_BR")
+        completeDate = dateFormatterWeekDay.string(from: (dateModel?.date)!) + " " + (timeText ?? "")
+         
+        dateMonthYear = dateFormatterWeekDay.string(from: (dateModel?.date)!)
+        
     }
 
     @IBAction func sceduleButtonAction(_ sender: Any) {
@@ -71,16 +81,32 @@ extension ScheduleViewController:AlertConfirmationDelegate{
     func cancel() {}
     
     func confirmation() {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "SuccessConfirmViewController") as? SuccessConfirmViewController{
-            vc.salon = self.salon
-            vc.service = self.service
-            vc.employee = self.employee
+        SVProgressHUD.show()
+        ScheduleAPI.doAppointment(salonID: self.salon?.idSalon ?? "", completeDate: self.completeDate  ?? "", hour:self.timeText ?? "", dayMonth:dateText ?? "", serviceID: self.service?.serviceId  ?? "", employeeID: self.employee?.employeeId  ?? "", userID: AppContextHelper.share.userID ?? "", dayMonthYear: dateMonthYear ?? "") { appointment, err in
             
-            vc.dateText = dateText
-            vc.timeText = timeText
-            vc.dateModel = dateModel
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
             
-            navigationController?.pushViewController(vc, animated: true)
+            if err == nil {
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessConfirmViewController") as? SuccessConfirmViewController{
+                    vc.salon = self.salon
+                    vc.service = self.service
+                    vc.employee = self.employee
+                    
+                    vc.dateText = self.dateText
+                    vc.timeText = self.timeText
+                    vc.dateModel = self.dateModel
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            } else {
+                if err?.message == ""{
+                    err?.message = "Ocorreu um erro"
+                }
+                
+                self.showAlertToast(title: err?.message ?? "Ocorreu um erro", displayTime: 10)
+            }
         }
     }
     
