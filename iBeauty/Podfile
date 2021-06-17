@@ -9,6 +9,7 @@ target 'iBeauty' do
   pod 'Alamofire'
   pod 'Cosmos', '~> 23.0'
   pod 'SVProgressHUD'
+  pod 'IQKeyboardManagerSwift'
   # Pods for iBeauty
   
 end

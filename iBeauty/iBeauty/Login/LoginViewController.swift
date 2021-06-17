@@ -60,8 +60,9 @@ class LoginViewController: BaseViewController {
                 SVProgressHUD.dismiss()
             }
             if error == nil{
-                AppContextHelper.share.currentUser = user
-                AppContextHelper.share.userID = user?.userId ?? ""
+                AppContextHelper.share.currentUser = user?.user
+                AppContextHelper.share.userID = user?.user?.userId ?? ""
+                AppContextHelper.share.jwt = user?.token
                 print("SUCESSO: \(user)")
                 if self.isLoginIntern{
                     self.dismiss(animated: true, completion: nil)

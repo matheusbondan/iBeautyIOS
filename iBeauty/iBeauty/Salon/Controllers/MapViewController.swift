@@ -160,11 +160,11 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 
     // 7
-    mapView.camera = GMSCameraPosition(
-      target: location.coordinate,
-      zoom: 15,
-      bearing: 0,
-      viewingAngle: 0)
+//    mapView.camera = GMSCameraPosition(
+//      target: location.coordinate,
+//      zoom: 15,
+//      bearing: 0,
+//      viewingAngle: 0)
   }
 
   // 8

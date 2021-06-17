@@ -32,6 +32,9 @@
 		F2466B00252FD71C00DD3725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2466AFE252FD71C00DD3725 /* LaunchScreen.storyboard */; };
 		F2466B0B252FD71C00DD3725 /* iBeautyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2466B0A252FD71C00DD3725 /* iBeautyTests.swift */; };
 		F2466B16252FD71C00DD3725 /* iBeautyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2466B15252FD71C00DD3725 /* iBeautyUITests.swift */; };
+		F251597B267B9437000FB696 /* UserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251597A267B9437000FB696 /* UserLocationViewController.swift */; };
+		F251597D267BA052000FB696 /* UserLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251597C267BA052000FB696 /* UserLocationModel.swift */; };
+		F2A2391D26718F1F00F13DEC /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A2391C26718F1F00F13DEC /* APIConfig.swift */; };
 		F2B874D62537AE79008A0F71 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B874D52537AE79008A0F71 /* CategoriesViewController.swift */; };
 		F2B874DB2537AED5008A0F71 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B874DA2537AED5008A0F71 /* CategoriesTableViewCell.swift */; };
 		F2C4934825604B5900042CDA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C4934725604B5900042CDA /* LoginViewController.swift */; };
@@ -118,6 +121,9 @@
 		F2466B11252FD71C00DD3725 /* iBeautyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBeautyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2466B15252FD71C00DD3725 /* iBeautyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBeautyUITests.swift; sourceTree = "<group>"; };
 		F2466B17252FD71C00DD3725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F251597A267B9437000FB696 /* UserLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationViewController.swift; sourceTree = "<group>"; };
+		F251597C267BA052000FB696 /* UserLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationModel.swift; sourceTree = "<group>"; };
+		F2A2391C26718F1F00F13DEC /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		F2B874D52537AE79008A0F71 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		F2B874DA2537AED5008A0F71 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		F2C4934725604B5900042CDA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 				F21EC00B262B781B00B4B9BA /* APIErrorModel.swift */,
 				F21EC006262B779900B4B9BA /* APIError.swift */,
 				F21EBFF8262B771E00B4B9BA /* NetworkRequests.swift */,
+				F2A2391C26718F1F00F13DEC /* APIConfig.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -324,6 +331,7 @@
 				F2C493722567642500042CDA /* TimeViewController.swift */,
 				F21F5A9C2568556B00C9CF14 /* PerfilViewController.swift */,
 				F2E5E0AA26685F1B0027406A /* AddCommentViewController.swift */,
+				F251597A267B9437000FB696 /* UserLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,6 +347,7 @@
 				F20D32FD2664898800FFD97E /* AppointmentModel.swift */,
 				F2E5E0AE26694FEC0027406A /* RateModel.swift */,
 				F2E5E0B9266ACD460027406A /* AddressModel.swift */,
+				F251597C267BA052000FB696 /* UserLocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -625,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2C87AD325420AAA007934C4 /* EmployeeViewController.swift in Sources */,
+				F251597B267B9437000FB696 /* UserLocationViewController.swift in Sources */,
 				F2EFEED8262D486400495027 /* ViewAlert.swift in Sources */,
 				F2E5E0AD26694F480027406A /* RateAPI.swift in Sources */,
 				F2C493732567642500042CDA /* TimeViewController.swift in Sources */,
@@ -634,6 +644,7 @@
 				F2E5E0AF26694FEC0027406A /* RateModel.swift in Sources */,
 				F21F5AC125758E6200C9CF14 /* EmployeeModel.swift in Sources */,
 				F20D32FC266488CF00FFD97E /* ScheduleAPI.swift in Sources */,
+				F251597D267BA052000FB696 /* UserLocationModel.swift in Sources */,
 				F2466AF5252FD71900DD3725 /* ViewController.swift in Sources */,
 				F2466AF1252FD71900DD3725 /* AppDelegate.swift in Sources */,
 				F2C4934825604B5900042CDA /* LoginViewController.swift in Sources */,
@@ -668,6 +679,7 @@
 				F21EC007262B779900B4B9BA /* APIError.swift in Sources */,
 				F21F5AD225758EFB00C9CF14 /* SalonModel.swift in Sources */,
 				F2B874DB2537AED5008A0F71 /* CategoriesTableViewCell.swift in Sources */,
+				F2A2391D26718F1F00F13DEC /* APIConfig.swift in Sources */,
 				F2C87ACE254201A3007934C4 /* ServiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,7 +859,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5B6733M688;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6ZVL2ANYP3;
 				INFOPLIST_FILE = iBeauty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -858,7 +871,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -870,7 +883,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5B6733M688;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6ZVL2ANYP3;
 				INFOPLIST_FILE = iBeauty/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -881,7 +895,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

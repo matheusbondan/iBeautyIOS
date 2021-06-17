@@ -7,6 +7,7 @@
 
 import UIKit
 import SVProgressHUD
+import EventKit
 
 class ScheduleViewController: BaseViewController {
 
@@ -16,6 +17,7 @@ class ScheduleViewController: BaseViewController {
     var timeText:String?
     var dateText:String?
     var dateModel:DateScheduleModel?
+    let eventStore : EKEventStore = EKEventStore()
     
     @IBOutlet weak var monthLabel: UILabel!
     
@@ -48,6 +50,8 @@ class ScheduleViewController: BaseViewController {
         
         self.title = self.service?.name
         
+        priceLabel.text = salon?.name
+        
         let dateFormatterWeekDay = DateFormatter()
         dateFormatterWeekDay.dateFormat = "dd/MM/yyyy"
         dateFormatterWeekDay.locale = Locale.init(identifier: "pt_BR")
@@ -75,6 +79,42 @@ class ScheduleViewController: BaseViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
+    func inputInCalendar(input:AppointmentModel){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
+//        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        let dateStart = dateFormatter.date(from: completeDate!)
+        let dateEnd = Calendar.current.date(byAdding: .minute, value: 30, to: dateStart!)
+        
+        eventStore.requestAccess(to: .event) { (granted, error) in
+          
+          if (granted) && (error == nil) {
+              print("granted \(granted)")
+              print("error \(error)")
+              
+            let event:EKEvent = EKEvent(eventStore: self.eventStore)
+              
+              event.title = "Agendamento - iBeauty"
+              event.startDate = dateStart
+              event.endDate = dateEnd
+            event.notes = "Agendamento - iBeauty\n\nSalão: \(self.salon?.name ?? "")\nServiço: \(self.service?.name ?? "")\nProfissional: \(self.employee?.name ?? "")\n\nEndereço: \(self.salon?.address?.allAddress ?? "")"
+            event.calendar = self.eventStore.defaultCalendarForNewEvents
+              do {
+                try self.eventStore.save(event, span: .thisEvent)
+              } catch let error as NSError {
+                  print("failed to save event with error : \(error)")
+              }
+              print("Saved Event")
+          }
+          else{
+          
+              print("failed to save event with error : \(error) or access not granted")
+          }
+        }
+    }
 }
 
 extension ScheduleViewController:AlertConfirmationDelegate{
@@ -89,6 +129,7 @@ extension ScheduleViewController:AlertConfirmationDelegate{
             }
             
             if err == nil {
+                self.inputInCalendar(input: appointment!)
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SuccessConfirmViewController") as? SuccessConfirmViewController{
                     vc.salon = self.salon
                     vc.service = self.service

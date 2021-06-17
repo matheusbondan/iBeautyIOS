@@ -17,6 +17,7 @@ class CategoriesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         
         SVProgressHUD.show()
         SalonAPI().getCategories { (categories, error) in

@@ -11,7 +11,7 @@ class SalonAPI {
     
     func getCategories(completion: @escaping ([CategoryModel]?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/categories"
+        let endpoint = APIConfig.baseURL + "categories"
         
         
         
@@ -33,7 +33,7 @@ class SalonAPI {
     
     func getSalonByService(idService:String, lat:Double?, lng:Double?, dayMonthYear:String, hour:String, haveLocation:Bool, completion: @escaping ([SalonModel]?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/salons/salonlist"
+        let endpoint = APIConfig.baseURL + "salons/salonlist"
         
         let parameters = [
             "serviceID":idService,

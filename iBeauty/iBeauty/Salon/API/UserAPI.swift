@@ -11,7 +11,7 @@ class UserAPI {
     
     static func changePassword(userID: String, currentPassword: String, newPassword: String, completion: @escaping (UserModel?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/users/\(userID)/changepassword"
+        let endpoint = APIConfig.baseURL + "users/\(userID)/changepassword"
         
         let parameters = [
             "currentPassword":currentPassword,
@@ -35,7 +35,7 @@ class UserAPI {
     
     static func changeUserData(userID: String, email: String, name: String, phone: String, completion: @escaping (UserModel?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/users/\(userID)/changedata"
+        let endpoint = APIConfig.baseURL + "users/\(userID)/changedata"
         
         let parameters = [
             "email":email,
@@ -60,7 +60,7 @@ class UserAPI {
     
     static func getAppointments(userID:String, completion: @escaping ([AppointmentModel]?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/appointments/\(userID)"
+        let endpoint = APIConfig.baseURL + "appointments/\(userID)"
         
         NetworkRequests().request(url: endpoint, method: .get, parameters: nil, headers: APIConfig.header, success: { (data) in
             

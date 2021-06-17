@@ -11,7 +11,7 @@ class ScheduleAPI {
     
     static func doAppointment(salonID: String, completeDate: String, hour:String, dayMonth:String, serviceID: String, employeeID: String, userID: String, dayMonthYear: String, completion: @escaping (AppointmentModel?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/appointments"
+        let endpoint = APIConfig.baseURL + "appointments"
         
         let parameters = [
             "salonID":salonID,

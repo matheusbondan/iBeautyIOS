@@ -18,6 +18,7 @@ class SalonListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var categoryType:CategorieModelCell?
+    @IBOutlet weak var placeholderLabel: UILabel!
     
     var googlePlace:GMSPlace?
     
@@ -36,6 +37,11 @@ class SalonListViewController: UIViewController {
     var currentPlacemark:CLPlacemark?
     var dateMonthYear:String?
     var haveLocation = false
+
+    var currentLocation:UserLocationModel?
+    var useUserLocation:Bool = false
+    
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,109 +53,156 @@ class SalonListViewController: UIViewController {
         
         tableView.tableFooterView = UIView()
         
-//        SVProgressHUD.show()
-//        SalonAPI().getSalonByService(idService: service?.serviceId ?? "") { salons, error in
-//            DispatchQueue.main.async {
-//                SVProgressHUD.dismiss()
-//            }
-//            if error == nil{
-//                self.dataSource = salons ?? []
-//                self.tableView.reloadData()
-//            } else {
-//                print(error)
-//            }
-//        }
         
         self.title = categoryType?.text
-        coreLocation()
-        callGeocode()
+        
+        if useUserLocation {
+            self.locationLabel.text = currentLocation?.addressName ?? ""
+        } else {
+            self.locationLabel.text = "Localização não habilitada"
+        }
+        
+        
+//        coreLocation()
+//        callGeocode()
+        refreshControl.attributedTitle = NSAttributedString(string: "Puxe para atualizar!")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        callAPI()
     }
     
-    private func callGeocode(){
-        let geocoder = CLGeocoder()
-        if let lml = locationManager.location{
-            geocoder.reverseGeocodeLocation(lml) { (placemarks, error) in
-                if (error != nil){
-                    print("error in reverseGeocode")
-                    self.haveLocation = false
-                    self.callAPI()
-                }
-                let placemark = placemarks! as [CLPlacemark]
-                if placemark.count>0{
-                    let placemark = placemarks![0]
-                    self.currentPlacemark = placemark
-
-                    self.locationLabel.text = "\(placemark.locality ?? "")"
-                    
-                    self.haveLocation = true
-                    self.callAPI()
-                    
-                } else{
-                    self.haveLocation = false
-                    self.callAPI()
-                }
-            }
-        } else {
-            callAPI()
-        }
+    @objc func refresh(_ sender: AnyObject) {
+        refreshControl.endRefreshing()
+        callAPI()
     }
+    
+//    private func callGeocode(){
+//        let geocoder = CLGeocoder()
+//        if let lml = locationManager.location{
+//            geocoder.reverseGeocodeLocation(lml) { (placemarks, error) in
+//                if (error != nil){
+//                    print("error in reverseGeocode")
+//                    self.haveLocation = false
+//                    self.callAPI()
+//                }
+//                let placemark = placemarks! as [CLPlacemark]
+//                if placemark.count>0{
+//                    let placemark = placemarks![0]
+//                    self.currentPlacemark = placemark
+//
+//                    self.locationLabel.text = "\(placemark.locality ?? "")"
+//
+//                    self.haveLocation = true
+//                    self.callAPI()
+//
+//                } else{
+//                    self.haveLocation = false
+//                    self.callAPI()
+//                }
+//            }
+//        } else {
+//            callAPI()
+//        }
+//    }
     
     private func callAPI(){
-        var lat = 0.0
-        var lng = 0.0
-        
-        if haveLocation {
-            if let la = self.currentPlacemark?.location?.coordinate.latitude, let lg = self.currentPlacemark?.location?.coordinate.longitude{
-                lat = la
-                lng = lg
-            } else {
-                haveLocation = false
-            }
-        }
-        
-        if havePlace {
-            haveLocation = true
+        if useUserLocation {
+//            var lat = 0.0
+//            var lng = 0.0
             
-            if let la = googlePlace?.coordinate.latitude, let lg = googlePlace?.coordinate.longitude{
-                lat = la
-                lng = lg
-            } else {
-                haveLocation = false
+//            if haveLocation {
+//                if let la = self.currentPlacemark?.location?.coordinate.latitude, let lg = self.currentPlacemark?.location?.coordinate.longitude{
+//                    lat = la
+//                    lng = lg
+//                } else {
+//                    haveLocation = false
+//                }
+//            }
+//
+//            if havePlace {
+//                haveLocation = true
+//
+//                if let la = googlePlace?.coordinate.latitude, let lg = googlePlace?.coordinate.longitude{
+//                    lat = la
+//                    lng = lg
+//                } else {
+//                    haveLocation = false
+//                }
+//            }
+            
+            if let lat = currentLocation?.lat, let lng = currentLocation?.lng{
+                SVProgressHUD.show()
+                SalonAPI().getSalonByService(idService: service?.serviceId ?? "", lat: lat, lng: lng, dayMonthYear: dateMonthYear ?? "", hour: timeText ?? "", haveLocation: true) { salons, error in
+                    DispatchQueue.main.async {
+                        SVProgressHUD.dismiss()
+                    }
+                    if error == nil{
+                        self.dataSource = salons ?? []
+                        
+                        if self.dataSource.isEmpty {
+                            self.placeholderLabel.isHidden = false
+                            self.placeholderLabel.text = "Não foram encontrados salões. Tente alterar o horário do serviço ou verifique sua localização."
+                        }
+                        else {
+                            self.placeholderLabel.isHidden = true
+                        }
+                        
+                        self.tableView.reloadData()
+                    } else {
+                        print(error)
+                        self.placeholderLabel.isHidden = false
+                        self.placeholderLabel.text = "Ocorreu um erro na busca de salões, tente novamente mais tarde."
+                    }
+                }
+            }
+            
+        } else{
+            SVProgressHUD.show()
+            SalonAPI().getSalonByService(idService: service?.serviceId ?? "", lat: nil, lng: nil, dayMonthYear: dateMonthYear ?? "", hour: timeText ?? "", haveLocation: false) { salons, error in
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                }
+                if error == nil{
+                    self.dataSource = salons ?? []
+                    
+                    if self.dataSource.isEmpty {
+                        self.placeholderLabel.isHidden = false
+                        self.placeholderLabel.text = "Não foram encontrados salões. Tente alterar o horário do serviço ou verifique sua localização."
+                    }
+                    else {
+                        self.placeholderLabel.isHidden = true
+                    }
+                    
+                    self.tableView.reloadData()
+                } else {
+                    print(error)
+                    self.placeholderLabel.isHidden = false
+                    self.placeholderLabel.text = "Ocorreu um erro na busca de salões, tente novamente mais tarde."
+                }
             }
         }
         
-        SVProgressHUD.show()
-        SalonAPI().getSalonByService(idService: service?.serviceId ?? "", lat: lat, lng: lng, dayMonthYear: dateMonthYear ?? "", hour: timeText ?? "", haveLocation: haveLocation) { salons, error in
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
-            }
-            if error == nil{
-                self.dataSource = salons ?? []
-                self.tableView.reloadData()
-            } else {
-                print(error)
-            }
-        }
+        
+       
     }
     
-    func coreLocation(){
-        // 1
-        locationManager.delegate = self
-
-        // 2
-        if CLLocationManager.locationServicesEnabled() {
-          // 3
-          locationManager.requestLocation()
-        } else {
-          // 5
-          locationManager.requestWhenInUseAuthorization()
-        }
-    }
+//    func coreLocation(){
+//        // 1
+//        locationManager.delegate = self
+//
+//        // 2
+//        if CLLocationManager.locationServicesEnabled() {
+//          // 3
+//          locationManager.requestLocation()
+//        } else {
+//          // 5
+//          locationManager.requestWhenInUseAuthorization()
+//        }
+//    }
     
     @objc func rateButtonAction(sender: UIButton){
         if let vc = storyboard?.instantiateViewController(withIdentifier: "RateViewController") as? RateViewController{
@@ -190,39 +243,59 @@ extension SalonListViewController: UITableViewDataSource, UITableViewDelegate{
             cell.cosmosRatings.isHidden = true
         }
         
-        if havePlace{
-
-            let location1 = CLLocation(latitude: googlePlace!.coordinate.latitude, longitude: googlePlace!.coordinate.longitude)
+//        if havePlace{
+//
+//            let location1 = CLLocation(latitude: googlePlace!.coordinate.latitude, longitude: googlePlace!.coordinate.longitude)
+//            let location2:CLLocation?
+//
+//            if let la = dataSource[indexPath.row].address?.lat, let lg = dataSource[indexPath.row].address?.lng{
+//                location2 = CLLocation(latitude: la, longitude: lg)
+//
+//                let distanceMeter = location1.distance(from: location2!)
+//
+//                let distanceString = String(format: "%.2f", distanceMeter)
+//
+//                cell.distanceLabel.text = "\(distanceString)m"
+//            } else{
+//                cell.distanceLabel.text = ""
+//            }
+//        }
+//        else{
+//            let location1 = locationManager.location
+//
+//            let location2:CLLocation?
+//
+//            if let la = dataSource[indexPath.row].address?.lat, let lg = dataSource[indexPath.row].address?.lng, let loc1 = location1{
+//                location2 = CLLocation(latitude: la, longitude: lg)
+//
+//                let distanceMeter = loc1.distance(from: location2!)
+//
+//                let distanceString = String(format: "%.2f", distanceMeter)
+//
+//                cell.distanceLabel.text = "\(distanceString)m"
+//            } else{
+//                cell.distanceLabel.text = ""
+//            }
+//        }
+        
+        if useUserLocation{
+            let location1 = CLLocation(latitude: (currentLocation?.lat)!, longitude: (currentLocation?.lng)!)
             let location2:CLLocation?
-                
+
             if let la = dataSource[indexPath.row].address?.lat, let lg = dataSource[indexPath.row].address?.lng{
                 location2 = CLLocation(latitude: la, longitude: lg)
 
                 let distanceMeter = location1.distance(from: location2!)
 
                 let distanceString = String(format: "%.2f", distanceMeter)
-                
+
                 cell.distanceLabel.text = "\(distanceString)m"
             } else{
                 cell.distanceLabel.text = ""
             }
-        }
-        else{
-            let location1 = locationManager.location
             
-            let location2:CLLocation?
-                
-            if let la = dataSource[indexPath.row].address?.lat, let lg = dataSource[indexPath.row].address?.lng, let loc1 = location1{
-                location2 = CLLocation(latitude: la, longitude: lg)
-
-                let distanceMeter = loc1.distance(from: location2!)
-
-                let distanceString = String(format: "%.2f", distanceMeter)
-                
-                cell.distanceLabel.text = "\(distanceString)m"
-            } else{
-                cell.distanceLabel.text = ""
-            }
+        } else {
+            cell.distanceLabel.text = ""
         }
         
         return cell
@@ -280,59 +353,66 @@ class SalonListTableViewCell: UITableViewCell {
     }
 }
 
-extension SalonListViewController: CLLocationManagerDelegate {
-  // 2
-  func locationManager(
-    _ manager: CLLocationManager,
-    didChangeAuthorization status: CLAuthorizationStatus
-  ) {
-    // 3
-    guard status == .authorizedWhenInUse else {
-      locationManager.requestWhenInUseAuthorization()
-      return
-    }
-    // 4
-    locationManager.startUpdatingLocation()
-  }
-
-  // 6
-  func locationManager(
-    _ manager: CLLocationManager,
-    didUpdateLocations locations: [CLLocation]) {
-    guard let location = locations.first else {
-      return
-    }
-  }
-
-  // 8
-  func locationManager(
-    _ manager: CLLocationManager,
-    didFailWithError error: Error
-  ) {
-    print(error)
-  }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("error::: \(error)")
-        locationManager.stopUpdatingLocation()
-        let alert = UIAlertController(title: "Settings", message: "Allow location from settings", preferredStyle: UIAlertController.Style.alert)
-        self.present(alert, animated: true, completion: nil)
-        alert.addAction(UIAlertAction(title: "Alerta", style: .default, handler: { action in
-            switch action.style{
-            case .default: UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
-            case .cancel: print("cancel")
-            case .destructive: print("destructive")
-            }
-        }))
-    }
-}
+//extension SalonListViewController: CLLocationManagerDelegate {
+//  // 2
+//  func locationManager(
+//    _ manager: CLLocationManager,
+//    didChangeAuthorization status: CLAuthorizationStatus
+//  ) {
+//    // 3
+//    guard status == .authorizedWhenInUse else {
+//      locationManager.requestWhenInUseAuthorization()
+//      return
+//    }
+//    // 4
+//    locationManager.startUpdatingLocation()
+//  }
+//
+//  // 6
+//  func locationManager(
+//    _ manager: CLLocationManager,
+//    didUpdateLocations locations: [CLLocation]) {
+//    guard let location = locations.first else {
+//      return
+//    }
+//  }
+//
+//  // 8
+//  func locationManager(
+//    _ manager: CLLocationManager,
+//    didFailWithError error: Error
+//  ) {
+//    print(error)
+//  }
+//
+//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+//        print("error::: \(error)")
+//        locationManager.stopUpdatingLocation()
+//        let alert = UIAlertController(title: "Settings", message: "Allow location from settings", preferredStyle: UIAlertController.Style.alert)
+//        self.present(alert, animated: true, completion: nil)
+//        alert.addAction(UIAlertAction(title: "Alerta", style: .default, handler: { action in
+//            switch action.style{
+//            case .default: UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
+//            case .cancel: print("cancel")
+//            case .destructive: print("destructive")
+//            }
+//        }))
+//    }
+//}
 
 
 extension SalonListViewController: MapViewControllerDelegate{
     func updatePlace(place: GMSPlace) {
-        havePlace = true
-        googlePlace = place
-        locationLabel.text = place.name
+//        havePlace = true
+//        googlePlace = place
+//        locationLabel.text = place.name
+        
+        useUserLocation = true
+        currentLocation?.addressName = place.name
+        currentLocation?.lat = place.coordinate.latitude
+        currentLocation?.lng = place.coordinate.longitude
+        
+        locationLabel.text = currentLocation?.addressName ?? ""
         
         callAPI()
         

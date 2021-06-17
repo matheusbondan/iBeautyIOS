@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import GoogleMaps
 import GooglePlaces
+import IQKeyboardManagerSwift
 
 
 let googleApiKey = "AIzaSyAGSddGAqNX-3wUzyWOQm6cuud-oP4F-VA"
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(googleApiKey)
         GMSPlacesClient.provideAPIKey(googleApiKey)
         
+        IQKeyboardManager.shared.enable = true
         
         window?.rootViewController = initialize()
         
@@ -44,6 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    public func notAuthorizedRequest(){
+        window?.rootViewController?.showTokenAlertToast()
+        window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FirstNav")
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -91,3 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension UIViewController {
+    func showTokenAlertToast(){
+        let alert = ViewAlert(title: "Operação não autorizada, faça login novamente", image: "", displayTime: 10.0)
+        alert.display()
+    }
+}

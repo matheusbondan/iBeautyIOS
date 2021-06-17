@@ -14,6 +14,8 @@ public class AppContextHelper{
     
     public var currentUser:UserModel?
     
+    public var currentLocation:UserLocationModel?
+    
     public var rememberMe:Bool? {
         get{
             return userDefaults.bool(forKey: "remember-me-key")
@@ -47,6 +49,15 @@ public class AppContextHelper{
         }
         set{
             userDefaults.set(newValue, forKey: "logged-key")
+        }
+    }
+    
+    public var jwt:String? {
+        get{
+            return userDefaults.string(forKey: "jwt-key")
+        }
+        set{
+            userDefaults.set(newValue, forKey: "jwt-key")
         }
     }
 }

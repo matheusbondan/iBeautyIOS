@@ -11,7 +11,7 @@ class RateAPI {
     
     static func addRate(salonID: String, userID: String, rateScore: Int, comment: String, completion: @escaping (RateModel?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/ratings"
+        let endpoint = APIConfig.baseURL + "ratings"
         
         let parameters = [
             "salonID":salonID,
@@ -37,7 +37,7 @@ class RateAPI {
 
     static func getRatingsBySalon(salonID:String, completion: @escaping ([RateModel]?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/ratings/salon/\(salonID)"
+        let endpoint = APIConfig.baseURL + "ratings/salon/\(salonID)"
         
         NetworkRequests().request(url: endpoint, method: .get, parameters: nil, headers: APIConfig.header, success: { (data) in
             

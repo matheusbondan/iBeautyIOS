@@ -81,6 +81,11 @@ extension PerfilViewController:UITableViewDelegate, UITableViewDataSource{
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             } else if datasource[indexPath.row] == "Logout"{
+                AppContextHelper.share.rememberMe = false
+                AppContextHelper.share.jwt = nil
+                AppContextHelper.share.isLogged = false
+                AppContextHelper.share.userID = nil
+                AppContextHelper.share.currentUser = nil
                 if let vc = self.storyboard?.instantiateViewController(withIdentifier: "FirstNav"){
                     
                     vc.modalPresentationStyle = .overFullScreen

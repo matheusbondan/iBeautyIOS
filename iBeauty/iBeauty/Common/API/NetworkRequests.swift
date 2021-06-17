@@ -29,9 +29,8 @@ class NetworkRequests{
                     
                     if response.response?.statusCode == 401{
                         DispatchQueue.main.async {
-//                            TSXTransmitSDKXm.sharedInstance().logoutAsynchronously { [weak self] (success, error) in
-//                                TransactionFactory.getBeatSessionPopup(alertTitle: "beat_session.alert.text".localized, buttonTitle: "beat_session.alert_button.label".localized)
-//                            }
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.notAuthorizedRequest()
                         }
                         
                         

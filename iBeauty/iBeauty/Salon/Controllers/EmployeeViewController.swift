@@ -65,7 +65,12 @@ extension EmployeeViewController: UITableViewDelegate, UITableViewDataSource{
         if let vc = storyboard?.instantiateViewController(withIdentifier: "SceduleViewController") as? ScheduleViewController{
             vc.salon = self.salon
             vc.service = self.service
-            vc.employee = dataSource[indexPath.row]
+            if indexPath.row == 0{
+                vc.employee = dataSource[indexPath.row + 1]
+            } else{
+                vc.employee = dataSource[indexPath.row]
+            }
+            
             vc.dateText = self.dateText
             vc.dateModel = self.dateModel
             vc.timeText = self.timeText

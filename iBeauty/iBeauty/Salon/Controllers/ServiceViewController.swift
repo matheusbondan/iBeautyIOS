@@ -14,7 +14,6 @@ class ServiceViewController: UIViewController {
     var category:CategoryModel?
     
     @IBOutlet weak var tableView: UITableView!
-//    var dataSource:[ServiceModel] = [ServiceModel.init(name: "Manicure Decorado", price: "A partir de R$ 25,00", time: "40m"), ServiceModel.init(name: "Manicure Francesinha", price: "R$ 24,00", time: "1h"), ServiceModel.init(name: "Manicure Simples", price: "R$ 20,00", time: "1h"), ServiceModel.init(name: "Pedicure Decorada", price: "A partir de R$ 35,00", time: "40m"), ServiceModel.init(name: "Pedicure Francesinha", price: "R$ 34,00", time: "1h"), ServiceModel.init(name: "Pedicure Simples", price: "R$ 30,00", time: "1h")]
     var dataSource:[ServiceModel] = []
     
     override func viewDidLoad() {

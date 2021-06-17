@@ -50,7 +50,17 @@ class TimeViewController: BaseViewController {
     
     @IBAction func scheduleButtonAction(_ sender: Any) {
         if AppContextHelper.share.isLogged ?? false{
-            if let vc = storyboard?.instantiateViewController(withIdentifier: "SalonListViewController") as? SalonListViewController{
+//            if let vc = storyboard?.instantiateViewController(withIdentifier: "SalonListViewController") as? SalonListViewController{
+//
+//                vc.dateText = daysDataSource[daySelectedIndex].dayMonth
+//                vc.dateModel = daysDataSource[daySelectedIndex]
+//                vc.timeText = hourTextField.text
+//                vc.service = self.service
+//                vc.category = self.category
+//
+//                navigationController?.pushViewController(vc, animated: true)
+//            }
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "UserLocationViewController") as? UserLocationViewController{
                 
                 vc.dateText = daysDataSource[daySelectedIndex].dayMonth
                 vc.dateModel = daysDataSource[daySelectedIndex]

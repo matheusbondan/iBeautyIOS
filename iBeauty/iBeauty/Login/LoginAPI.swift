@@ -12,9 +12,9 @@ import Alamofire
 
 class LoginAPI {
     
-    func login(email: String, password: String, completion: @escaping (UserModel?, APIError?) -> Void){
+    func login(email: String, password: String, completion: @escaping (UserOutput?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/login"
+        let endpoint = APIConfig.baseURL + "login"
         
         let parameters = [
             "email":email,
@@ -25,7 +25,7 @@ class LoginAPI {
         NetworkRequests().request(url: endpoint, method: .post, parameters: parameters, headers: APIConfig.header, success: { (data) in
             
             do {
-                let balance = try JSONDecoder().decode(UserModel.self, from: data)
+                let balance = try JSONDecoder().decode(UserOutput.self, from: data)
                 
                 completion(balance, nil)
             } catch {
@@ -37,9 +37,9 @@ class LoginAPI {
         }
     }
     
-    func register(name: String, email: String, phone: String, cpf: String, password: String, completion: @escaping (UserModel?, APIError?) -> Void){
+    func register(name: String, email: String, phone: String, cpf: String, password: String, completion: @escaping (UserOutput?, APIError?) -> Void){
         
-        let endpoint = "http://localhost:3000/users"
+        let endpoint = APIConfig.baseURL + "users"
         
         let parameters = [
             "username":name,
@@ -53,7 +53,7 @@ class LoginAPI {
         NetworkRequests().request(url: endpoint, method: .post, parameters: parameters, headers: APIConfig.header, success: { (data) in
             
             do {
-                let balance = try JSONDecoder().decode(UserModel.self, from: data)
+                let balance = try JSONDecoder().decode(UserOutput.self, from: data)
                 
                 completion(balance, nil)
             } catch {
@@ -67,12 +67,4 @@ class LoginAPI {
     
 }
 
-class APIConfig {
-    public static var header: HTTPHeaders! {
-        var headers = HTTPHeaders()
-        
-        headers.add(name: "Content-Type", value: "application/json")
-        
-        return headers
-    }
-}
+

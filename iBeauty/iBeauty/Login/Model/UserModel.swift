@@ -7,6 +7,30 @@
 
 import Foundation
 
+public class UserOutput: NSObject, Codable {
+    open var user: UserModel?
+    open var token: String?
+    
+    public override init(){}
+
+    required public init(from decoder: Decoder)throws {
+        let values = try decoder.container(keyedBy: Keys.self)
+        if let value = ((try? values.decode(UserModel?.self, forKey: .user)) as UserModel??) { user = value }
+        if let value = ((try? values.decode(String?.self, forKey: .token)) as String??) { token = value }
+    }
+
+    public func encode(to encode: Encoder) throws{
+        var container = try encode.container(keyedBy: Keys.self)
+        try container.encode( user, forKey: .user)
+        try container.encode( token, forKey: .token)
+    }
+
+    enum Keys: String, CodingKey {
+        case user          = "user"
+        case token        = "token"
+    }
+}
+
 public class UserModel: NSObject, Codable {
     
     open var userId: String?

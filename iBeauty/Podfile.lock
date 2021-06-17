@@ -8,6 +8,7 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (4.0.0):
     - GoogleMaps/Base (= 4.0.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Cosmos (~> 23.0)
   - GoogleMaps
   - GooglePlaces
+  - IQKeyboardManagerSwift
   - SVProgressHUD
 
 SPEC REPOS:
@@ -23,6 +25,7 @@ SPEC REPOS:
     - Cosmos
     - GoogleMaps
     - GooglePlaces
+    - IQKeyboardManagerSwift
     - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -30,8 +33,9 @@ SPEC CHECKSUMS:
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   GoogleMaps: b7f7fc569a9b354a3af0d9729dbec40957b7d41e
   GooglePlaces: ca8d4aba09ba79e0a829cf1dca03a41de6a09016
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 4d9bedb05f67bb187331465a2576357380c2659b
+PODFILE CHECKSUM: 162272e6bfbe6f47c56e648f365c30447df4e521
 
 COCOAPODS: 1.10.1
